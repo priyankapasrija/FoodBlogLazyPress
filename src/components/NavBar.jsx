@@ -3,31 +3,31 @@ import { FaSearch } from 'react-icons/fa';
 
 export default function NavBar() {
   return (
-    <Navbar isBordered>
-      <NavbarContent justify="start">
+    <Navbar isBordered  justify="start">
+      <NavbarContent >
         <NavbarBrand className="mr-4">
-          <p className="hidden sm:block font-bold text-inherit">ACME</p>
+          <p className="hidden sm:block font-bold text-inherit">NoodleNonsense🤤</p>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Features
-            </Link>
-          </NavbarItem>
           <NavbarItem isActive>
             <Link href="#" aria-current="page" color="secondary">
-              Customers
+              Home
+            </Link>
+          </NavbarItem>
+          <NavbarItem >
+            <Link href="#" color="foreground" >
+           Recipes
             </Link>
           </NavbarItem>
           <NavbarItem>
             <Link color="foreground" href="#">
-              Integrations
+              Contact Us
             </Link>
           </NavbarItem>
         </NavbarContent>
       </NavbarContent>
 
-      <NavbarContent as="div" className="items-center" justify="end">
+     <NavbarContent as="div" className="items-center" justify="center">
         <Input
           classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
@@ -40,7 +40,7 @@ export default function NavBar() {
           startContent={<FaSearch size={18} />}
           type="search"
         />
-        <Dropdown placement="bottom-end">
+        {/* <Dropdown placement="bottom-end">
           <DropdownTrigger>
             <Avatar
               isBordered
@@ -49,7 +49,7 @@ export default function NavBar() {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src="https://cdn-icons-png.flaticon.com/512/189/189001.png"
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
@@ -67,8 +67,8 @@ export default function NavBar() {
               Log Out
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>
-      </NavbarContent>
+        </Dropdown>*/}
+        </NavbarContent> 
     </Navbar>
   );
 }
