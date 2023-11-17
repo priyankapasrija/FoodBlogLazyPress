@@ -1,4 +1,5 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link,Input}  from "@nextui-org/react";
+//import {  DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
 import { FaSearch } from 'react-icons/fa';
 
 export default function NavBar() {
@@ -8,7 +9,9 @@ export default function NavBar() {
         <NavbarBrand className="mr-4">
           <p className="hidden sm:block font-bold text-inherit">NoodleNonsense🤤</p>
         </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-3">
+      
+      </NavbarContent>
+      <NavbarContent className="hidden sm:flex gap-3" style={{marginRight:'40px'}}>
           <NavbarItem isActive>
             <Link href="#" aria-current="page" color="secondary">
               Home
@@ -25,7 +28,6 @@ export default function NavBar() {
             </Link>
           </NavbarItem>
         </NavbarContent>
-      </NavbarContent>
 
      <NavbarContent as="div" className="items-center" justify="center">
         <Input

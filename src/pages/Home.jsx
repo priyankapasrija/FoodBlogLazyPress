@@ -8,7 +8,7 @@ const { hero, navBar, cards } = data;
   return (
     <>
       <NavBar navBar={navBar} />
-      <HeroBanner hero={hero} />
+      <HeroBanner hero={hero}  />
       <CardSection cards={cards} />
     </>
   );

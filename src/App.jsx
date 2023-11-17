@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import RecipePage from './pages/RecipePage';
 import { useState, useEffect } from "react";
 import { getSinglePageContent } from '../src/lib/dbBlog';
 
@@ -31,6 +32,10 @@ export default function App() {
         <Route
           path="/"
           element={<Home data={data} />}
+        />
+        <Route
+        path='/recipe/:_id'
+        element={<RecipePage/>}
         />
       </Routes>
     </>
