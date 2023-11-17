@@ -18,7 +18,7 @@ const getSinglePageContent = async () => {
       console.error(`🛑🤩 Failed to fetch content from all pages`, error);
     }
   };
-  
+
 
   export {
     getSinglePageContent

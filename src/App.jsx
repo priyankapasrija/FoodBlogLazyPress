@@ -35,7 +35,7 @@ export default function App() {
         />
         <Route
         path='/recipe/:_id'
-        element={<RecipePage/>}
+        element={<RecipePage data={data}/>}
         />
       </Routes>
     </>
