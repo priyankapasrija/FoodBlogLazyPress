@@ -2,7 +2,10 @@ import {Accordion, AccordionItem} from "@nextui-org/react";
 
 export default function AccordionCom() {
   const defaultContent =
-    "This information will come from db";
+    "In a bowl, mix ground beef, egg, onion, bread crumbs, Worcestershire, garlic, 1/2 teaspoon salt, and 1/5 teaspoon pepper until well blended. Divide mixture into four equal portions and shape each into a patty about 4 inches wide.";
+
+
+    
 
   return (
     <>

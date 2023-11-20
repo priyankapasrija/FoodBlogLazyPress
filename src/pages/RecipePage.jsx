@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getSinglePageContent } from '../lib/dbBlog';
-import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
+import {Breadcrumbs, BreadcrumbItem, Button} from "@nextui-org/react";
 import AccordionCom from '../components/AccordionCom';
 import TableCom from '../components/TableCom';
+import Comments from '../components/Comments';
+import CommentForm from '../components/CommentForm';
 
 export default function RecipePage() {
   const { _id } = useParams(); 
@@ -45,6 +47,13 @@ export default function RecipePage() {
       <p>{data.text}</p>
       <TableCom/>
       <AccordionCom />
+      <CommentForm/>
+      <Comments/>
+      <div>
+        <Button>Share on Twitter</Button>
+        <Button>Share on Facebook</Button>
+        <Button>Share on Instagram</Button>
+      </div>
     </>
   );
 }

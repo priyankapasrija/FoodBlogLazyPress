@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Slider from "react-slick";
+import { Snorlax } from "./canvas";
 
 export default function HeroBanner({ hero }) {
   const [paused, setPaused] = useState(false);
@@ -82,6 +83,7 @@ export default function HeroBanner({ hero }) {
         >
           <FaChevronRight />
         </Button>
+<Snorlax/>
       </div>
     </>
   );

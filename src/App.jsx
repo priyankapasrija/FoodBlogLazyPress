@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import RecipePage from './pages/RecipePage';
+import NotFound from './pages/NotFound';
 import { useState, useEffect } from "react";
 import { getSinglePageContent } from '../src/lib/dbBlog';
 
@@ -37,6 +38,11 @@ export default function App() {
         path='/recipe/:_id'
         element={<RecipePage data={data}/>}
         />
+        <Route 
+        path='*'
+        element={<NotFound />} 
+        />
+
       </Routes>
     </>
   );
