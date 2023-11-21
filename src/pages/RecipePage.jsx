@@ -41,7 +41,7 @@ export default function RecipePage() {
   return (
     <>
    
-      <Breadcrumbs className='p-2'>
+      <Breadcrumbs className='p-2' style={{borderBottom:'1px solid black'}}>
        
         <BreadcrumbItem className='ml-[50px]' style={{ fontSize: '1rem' }}> <Link style={{textDecoration:'none'}}
         to="/" relative="path">Home </Link></BreadcrumbItem>
@@ -50,16 +50,16 @@ export default function RecipePage() {
        {theData.title}</BreadcrumbItem>
       </Breadcrumbs>
       <div className='relative'>
-      <img src={theData.imgUrl} alt={theData.title} className='object-cover' style={{ width: '100vw', height: '50vh' }}></img>
+      <img src={theData.imgUrl} alt={theData.title} className='object-cover' style={{ width: '100vw', height: '60vh', borderBottom:'1px solid black' }}></img>
       <div>
-      <p className='absolute my-[-35px] italic border-1 border-black' style={{ fontFamily: 'Barlow Condensed', fontSize: '1.5rem', textAlign:'center', backgroundColor:'#feea2e' }}>{theData.title}</p>
+      <p className='absolute my-[-35px] italic border-1 border-black w-full' style={{ fontSize: '1.5rem', textAlign:'center', backgroundColor:'#feea2e' }}>{theData.title}</p>
       </div>
       </div>
-      <div className='flex flex-row justify-center gap-5 items-start' style={{ width: '100vw',fontFamily:'Montserrat',fontSize:'1.2rem' }}>
+      <div className='flex flex-col justify-center gap-5 items-start ' style={{ width: '100vw',fontFamily:'Montserrat',fontSize:'1.2rem' }}>
         <div className='flex flex-col justify-center items-start p-5'>
           <h1 className='h1' style={{ fontSize: '1rem' }}>List of Ingredients</h1>
           <hr />
-          <p>
+          <p className='border border-black p-4 borderShadow'>
             Ground lean (7% fat) beef,<br />
             Large egg,<br />
             Minced onion, <br />
@@ -97,15 +97,17 @@ export default function RecipePage() {
             In a bowl, mix ground beef, egg, onion, bread crumbs, Worcestershire, garlic, 1/2 teaspoon salt, and 1/5 teaspoon pepper until well blended. Divide mixture into four equal portions and shape each into a patty about 4 inches wide.
           </p>
         </div>
-      </div>
+      <div>
       <CommentForm />
       <Comments />
-      <div>
         <Button>Share on Twitter</Button>
         <Button>Share on Facebook</Button>
         <Button>Share on Instagram</Button>
       </div>
+      </div>
       
+  
+     
     </>
   );
 }

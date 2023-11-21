@@ -19,22 +19,24 @@ export default function CardSection({ blogPages }) {
   };
 
   return (
-    <div className="max-h-50vh">
-      <Carousel
-        showStatus={false}
-        showThumbs={false}
-        infiniteLoop
-        selectedItem={currentSlide}
-        onChange={(index) => setCurrentSlide(index)}
-      >
-        {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-          <div key={slideIndex} className="flex overflow-hidden relative" style={{height:'50vh'}}>
-            {blogPages.slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide).map((card) => (
-              <RecipeCard key={card._id} title={card.title} text={card.text} imgUrl={card.imgUrl} id={card._id} button={card.button} />
-            ))}
-          </div>
-        ))}
-      </Carousel>
+    <>
+      <div className="max-h-100vh">
+        <Carousel
+          showStatus={false}
+          showThumbs={false}
+          infiniteLoop
+          selectedItem={currentSlide}
+          onChange={(index) => setCurrentSlide(index)}
+        >
+          {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+            <div key={slideIndex} className="flex overflow-hidden relative" style={{ height: '80vh', width: '120vw' }}>
+              {blogPages.slice(slideIndex * cardsPerSlide, (slideIndex + 1) * cardsPerSlide).map((card) => (
+                <RecipeCard key={card._id} title={card.title} text={card.text} imgUrl={card.imgUrl} id={card._id} button={card.button} />
+              ))}
+            </div>
+          ))}
+        </Carousel>
+      </div>
       <div className="flex w-full justify-center">
         <button onClick={handlePrev} className="mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base">
           <FaChevronLeft />
@@ -43,6 +45,6 @@ export default function CardSection({ blogPages }) {
           <FaChevronRight />
         </button>
       </div>
-    </div>
+    </>
   );
 }

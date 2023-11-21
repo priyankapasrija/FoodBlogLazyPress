@@ -8,33 +8,33 @@ export default function NavBar({navBar}) {
       <NavbarContent className="hidden sm:flex gap-3" style={{marginLeft:'-10vw'}} >
      {navBar.map((item, index) => (
           <NavbarItem key={index} isActive={index === 0}>
-            <Link href={item.href}   style={{ color: 'black', fontWeight: index === 0 ? 'bolder' : 'normal' }}>
-              {item.menuItem}
+            <Link href={item.href}  className="p-2" style={{ marginLeft:'-1vw',borderRight:'1px solid black', textDecoration:'none', color: 'black', fontWeight: index === 0 ? 'bolder' : 'normal', }}>
+              {item.menuItem} 
             </Link>
           </NavbarItem>
       ))}
       </NavbarContent>
 
-     <NavbarContent as="div" className="items-center" justify="center">
+     <NavbarContent as="div" className="items-center" justify="center" >
         <Input
           classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
             mainWrapper: "h-full",
             input: "text-small",
-            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            inputWrapper: "h-full font-normal text-default-500 border border-black buttonShadow dark:border-white bg-white dark:bg-black rounded-none",
           }}
           placeholder="Type to search..."
           size="sm"
           startContent={<FaSearch size={18} />}
           type="search"
         />
-         <Dropdown placement="bottom-end">
+         <Dropdown placement="bottom-end" >
           <DropdownTrigger>
             <Avatar
               isBordered
               as="button"
-              className="transition-transform"
-              color="secondary"
+              className="transition-transform border border-black buttonShadow"
+              style={{borderRadius:'0'}}
               name="Jason Hughes"
               size="sm"
               src="https://cdn-icons-png.flaticon.com/512/189/189001.png"

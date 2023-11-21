@@ -27,8 +27,9 @@ html {
   }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Pilated", sans-serif;
   font-size: 24px;
+  font-weight: bold;
 }
 
 .vl {

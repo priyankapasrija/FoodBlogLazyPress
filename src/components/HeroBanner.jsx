@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animator, ScrollContainer, ScrollPage, batch, Fade, ZoomIn } from 'react-scroll-motion';
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, ZoomOut } from 'react-scroll-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Button } from '@nextui-org/react';
@@ -24,7 +24,7 @@ const HeroBanner = ({ hero }) => {
   return (
     <ScrollContainer>
       <ScrollPage style={{height:'100vh',marginTop:'-8vh', border:'1px solid black' }}>
-        <Animator animation={batch(Fade(), ZoomIn())}>
+        <Animator animation={batch(Fade(), ZoomOut())}>
           <Carousel
             autoPlay={!paused}
             interval={8000}
