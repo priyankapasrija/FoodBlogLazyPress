@@ -1,15 +1,19 @@
-import NavBar from "../components/NavBar";
 import HeroBanner from "../components/HeroBanner";
 import CardSection from "../components/CardSection";
+//import NavBar from "../components/NavBar";
+//import Footer from "../components/Footer";
 
-export default function Home({ data}) {
-const { hero, navBar, cards } = data;
+
+
+export default function Home({data}) {
+const { hero, blogPages } = data;
 
   return (
     <>
-      <NavBar navBar={navBar} />
-      <HeroBanner hero={hero}  />
-      <CardSection cards={cards} />
+     
+      <HeroBanner hero={hero}/>
+      <CardSection blogPages={blogPages} />
+     
     </>
   );
 }

@@ -1,54 +1,40 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link,Input}  from "@nextui-org/react";
-//import {  DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
+import {Navbar, NavbarContent, NavbarItem, Link,Input}  from "@nextui-org/react";
+import {  DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
 import { FaSearch } from 'react-icons/fa';
 
-export default function NavBar() {
+export default function NavBar({navBar}) {
   return (
-    <Navbar isBordered  justify="start">
-      <NavbarContent >
-        <NavbarBrand className="mr-4">
-          <p className="hidden sm:block font-bold text-inherit">NoodleNonsense🤤</p>
-        </NavbarBrand>
-      
+    <Navbar isBordered  justify="start" style={{borderBottom:'1px solid black',backgroundColor:'#d7b1bc'}}>
+      <NavbarContent className="hidden sm:flex gap-3" style={{marginLeft:'-10vw'}} >
+     {navBar.map((item, index) => (
+          <NavbarItem key={index} isActive={index === 0}>
+            <Link href={item.href}  className="p-2" style={{ marginLeft:'-1vw',borderRight:'1px solid black', textDecoration:'none', color: 'black', fontWeight: index === 0 ? 'bolder' : 'normal', }}>
+              {item.menuItem} 
+            </Link>
+          </NavbarItem>
+      ))}
       </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-3" style={{marginRight:'40px'}}>
-          <NavbarItem isActive>
-            <Link href="#" aria-current="page" color="secondary">
-              Home
-            </Link>
-          </NavbarItem>
-          <NavbarItem >
-            <Link href="#" color="foreground" >
-           Recipes
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Contact Us
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
 
-     <NavbarContent as="div" className="items-center" justify="center">
+     <NavbarContent as="div" className="items-center" justify="center" >
         <Input
           classNames={{
             base: "max-w-full sm:max-w-[10rem] h-10",
             mainWrapper: "h-full",
             input: "text-small",
-            inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            inputWrapper: "h-full font-normal text-default-500 border border-black buttonShadow dark:border-white bg-white dark:bg-black rounded-none",
           }}
           placeholder="Type to search..."
           size="sm"
           startContent={<FaSearch size={18} />}
           type="search"
         />
-        {/* <Dropdown placement="bottom-end">
+         <Dropdown placement="bottom-end" >
           <DropdownTrigger>
             <Avatar
               isBordered
               as="button"
-              className="transition-transform"
-              color="secondary"
+              className="transition-transform border border-black buttonShadow"
+              style={{borderRadius:'0'}}
               name="Jason Hughes"
               size="sm"
               src="https://cdn-icons-png.flaticon.com/512/189/189001.png"
@@ -69,7 +55,7 @@ export default function NavBar() {
               Log Out
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>*/}
+        </Dropdown>
         </NavbarContent> 
     </Navbar>
   );
