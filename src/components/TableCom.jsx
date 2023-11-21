@@ -1,4 +1,4 @@
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
 
 export default function TableCom() {
   const ingredients = [
@@ -19,41 +19,18 @@ export default function TableCom() {
     "Red onion, thin slices"
   ];
 
-  const amounts = [
-    "1 pound",
-    "1",
-    "½ cup",
-    "¼ cup",
-    "1 tablespoon",
-    "1 or 2",
-    "About 1/2 teaspoon",
-    "About 1/4 teaspoon",
-    "4",
-    "About 1/4 cup",
-    "About 1/4 cup",
-    "About 1/4 cup",
-    "4",
-    "1",
-    "4"
-  ];
-  
   return (
-    <Table aria-label="Table of Ingridients">
-    <TableHeader>
-      <TableColumn>List of Ingredients</TableColumn>
-      <TableColumn>Amount</TableColumn>
-    </TableHeader>
-    <TableBody>
-      {ingredients.map((ingredient, index) => (
-        <TableRow key={index + 1}>
-          <TableCell>{ingredient}</TableCell>
-          <TableCell>{amounts[index]}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
+    <Table aria-label="Table of Ingredients" style={{ width: '20vw', fontSize: '0.8rem' }}>
+      <TableHeader>
+        <TableColumn style={{ width: '20vw' }}>List of Ingredients</TableColumn>
+      </TableHeader>
+      <TableBody>
+        {ingredients.map((ingredient, index) => (
+          <TableRow key={index + 1}>
+            <TableCell>{ingredient}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }
-
-
-             

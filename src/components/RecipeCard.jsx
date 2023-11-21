@@ -1,7 +1,7 @@
 import { Card, CardHeader, Image, Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
-export default function RecipeCard({ title, text, imgUrl, id }) {
+export default function RecipeCard({ title, text, imgUrl, id,button }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -28,7 +28,7 @@ export default function RecipeCard({ title, text, imgUrl, id }) {
             {title}
           </h4>
           <Button onClick={handleClick} className="button" >
-            🧿Maşallah
+            {button}
           </Button>
         </CardHeader>
       </Card>

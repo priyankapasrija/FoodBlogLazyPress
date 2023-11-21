@@ -4,9 +4,11 @@ import RecipePage from './pages/RecipePage';
 import NotFound from './pages/NotFound';
 import { useState, useEffect } from "react";
 import { getSinglePageContent } from '../src/lib/dbBlog';
+import Layout from './components/Layout'
+
 
 export default function App() {
-  const [data, setData] = useState({ hero: null, navBar: null, cards: [] });
+  const [data, setData] = useState({ hero: [], navBar: [], blogPages: [],footer: [] });
   
   
   useEffect(() => {
@@ -14,11 +16,12 @@ export default function App() {
       try {
         const result = await getSinglePageContent();
         const { home } = result.pages || {};
-        const { hero, navBar, cards } = home || {};
-        setData({ hero, navBar, cards });
-        console.log(hero);
-        console.log(navBar);
-        console.log(cards)
+        const { hero, navBar, blogPages, footer } = home || {};
+        setData({ hero, navBar, blogPages,footer });
+        console.log('Hero',hero);
+        console.log('NavBar',navBar);
+        console.log('Cards',blogPages);
+        console.log('Footer',footer)
       } catch (error) {
         console.error(error);
       }
@@ -29,20 +32,20 @@ export default function App() {
 
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home data={data} />}
-        />
-        <Route
-        path='/recipe/:_id'
-        element={<RecipePage data={data}/>}
-        />
+       <Routes>
+        <Route path='/' element={<Layout data={data}/>}>
         <Route 
-        path='*'
-        element={<NotFound />} 
+         index element={<Home data={data} />}
         />
-
+        <Route
+          path="/recipe/:_id"
+          element={<RecipePage data={data} />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+        </Route>
       </Routes>
     </>
   );

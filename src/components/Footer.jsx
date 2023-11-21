@@ -1,68 +1,59 @@
-import {
-    Navbar,
-    NavbarContent,
-    NavbarItem,
-    Link,
-    Input,
-} from "@nextui-org/react";
-import { SiMinutemailer } from "react-icons/si";
+import { FaRegCopyright } from "react-icons/fa";
 
-export default function Footer() {
-    return (
-        <Navbar
-            position="static"
-            className="py-1 mt-4 border-t-black dark:border-t-white border-t-1"
-        >
-            <NavbarContent className="hidden sm:flex gap-4" justify="start">
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        About Us
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link href="#" color="foreground" aria-current="page">
-                        Shipping & Returns
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Contact Us
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Terms & Conditions
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        FAQ
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="#">
-                        Privacy Policy
-                    </Link>
-                </NavbarItem>
-            </NavbarContent>
-            <NavbarContent justify="end">
-                <Input
-                    classNames={{
-                        base: "max-w-full sm:max-w-[10rem] h-10",
-                        mainWrapper: "h-full",
-                        input: "text-small",
-                        inputWrapper:
-                            "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-                    }}
-                    // placeholder="vinyl@album.com"
-                    label="Sign up for our newsletter"
-                    labelPlacement="outside"
-                    size="sm"
-                    // startContent={<SearchIcon size={18} />}
-                    type="text"
-                    endContent={<SiMinutemailer />}
-                />
-            </NavbarContent>
-        </Navbar>
-    );
+
+export default function Footer({footer}) {
+  return (
+    <div className="text-white p-6" style={{backgroundColor:'black'}}>
+      <div className="flex gap-12 justify-evenly">
+        <div>
+          <h4 className="font-bold hover:text-pink-lavender">PRODUCTS</h4>
+          <ul>
+            <li className="hover:text-pink-lavender">Website Templates</li>
+            <li className="hover:text-pink-lavender">Websites</li>
+            <li className="hover:text-pink-lavender">Email Marketing</li>
+            <li className="hover:text-pink-lavender">Memberships</li>
+            <li className="hover:text-pink-lavender">Pricing</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold hover:text-pink-lavender">CUSTOMER</h4>
+          <ul>
+            <li className="hover:text-pink-lavender">Website Example</li>
+            <li className="hover:text-pink-lavender">Food-blog</li>
+            <li className="hover:text-pink-lavender">Travel-blog</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold hover:text-pink-lavender">COMPONY</h4>
+          <ul>
+          {footer.map((item, index) => (
+       <li className="hover:text-pink-lavender" key={index}>
+              {item.footerItem}
+            </li>
+        ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold hover:text-pink-lavender">COMMUNITY</h4>
+          <ul>
+            <li className="hover:text-pink-lavender">Help Center</li>
+            <li className="hover:text-pink-lavender">Contact Us</li>
+            <li className="hover:text-pink-lavender">Forum</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold hover:text-pink-lavender">FOLLOW</h4>
+          <ul>
+            <li className="hover:text-pink-lavender">Instagram</li>
+            <li className="hover:text-pink-lavender">LinkedIn</li>
+            <li className="hover:text-pink-lavender">Facebook</li>
+            <li className="hover:text-pink-lavender">Twitter</li>
+          </ul>
+        </div>
+      </div>
+      <p className="flex items-center gap-1 justify-center p-6">
+        <FaRegCopyright /> 2023 Food Blog | All Rights Reserved
+      </p>
+    </div>
+  );
 }

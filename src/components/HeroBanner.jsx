@@ -1,64 +1,71 @@
-import { Button } from "@nextui-org/react";
-import { useState } from "react";
-import { FaPlay, FaPause } from 'react-icons/fa';
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Slider from "react-slick";
-import { Snorlax } from "./canvas";
+import React from 'react';
+import { Animator, ScrollContainer, ScrollPage, batch, Fade, ZoomIn } from 'react-scroll-motion';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Button } from '@nextui-org/react';
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-export default function HeroBanner({ hero }) {
-  const [paused, setPaused] = useState(false);
-  const [sliderRef, setSliderRef] = useState(null);
+const HeroBanner = ({ hero }) => {
+  const [paused, setPaused] = React.useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const handlePause = () => {
-    if (!paused) {
-      sliderRef?.slickPause();
-      setPaused(true);
-    } else {
-      sliderRef?.slickPlay();
-      setPaused(false);
-    }
+    setPaused((prevPaused) => !prevPaused);
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % hero.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + hero.length) % hero.length);
   };
 
   return (
-    <>
-      <Slider
-        ref={setSliderRef}
-        autoplay={true}
-        autoplaySpeed={8000}
-        arrows={false}
-        waitForAnimate={false}
-        speed={3000}
-        className="pb-0 px-0 hover:cursor-pointer"
-        style={{ maxWidth: '100vw', important: true }}
+    <ScrollContainer>
+      <ScrollPage style={{height:'100vh',marginTop:'-8vh', border:'1px solid black' }}>
+        <Animator animation={batch(Fade(), ZoomIn())}>
+          <Carousel
+            autoPlay={!paused}
+            interval={8000}
+            showStatus={false}
+            showThumbs={false}
+            infiniteLoop
+            selectedItem={currentSlide}
+            style={{ height: '100vh', overflow: 'hidden'}}
+          >
+          {hero.map((item, index) => (
+  <div key={index} className="relative h-100vh overflow-hidden">
+    <img
+      alt="carousel banner"
+      src={item.imgUrl}
+      draggable="false"
+      className="object-cover h-[100vh]"
+      style={{ width:'50vw', marginLeft:'50vw',borderLeft:'2px solid black' }}
+    />
+    <div className="absolute top-[10vh] transform -translate-x-1/2 translate-y-1/2 z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center p-4 boxShadow" style={{border:'1px solid black',backgroundColor:'yellow', left:'35vw'
+}}>
+      <h1 className="font-bold text-black" style={{ fontFamily: 'Pilated',fontSize:'5rem' }}>
+        {item.title}
+      </h1>
+      <p className='text-black' style={{ fontFamily: 'Pilated',fontSize:'2rem' }}>item.text(this needs to be added to db)</p>
+      <Button
+        onClick={() => console.log('CTA Clicked')}
+        className=" text-black buttonShadow"
+        style={{backgroundColor:'#d7b1bc',borderRadius:'0px',border:'1px solid black'}}
       >
-        {hero &&  hero.map((item, index) => (
-          <div key={index} className="max-h-50vhoverflow-hidden relative">
-           <img
-              alt="carousel banner"
-              src={item.imgUrl}
-              draggable="false"
-              className="object-cover"
-              style={{height:'50vh',width:'100vw'}}
-              
-            />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
-              <h1 className="text-4xl font-bold text-white" style={{ fontFamily: 'Montserrat' }}>{item.title}</h1>
-              <Button
-                onClick={() => console.log("CTA Clicked")}
-                color="primary"
-                size="lg"
-                className="mt-4"
-              >
-                {item.button}
-              </Button>
-            </div>
-          </div>
-        ))}
-      </Slider>
+        {item.button}
+      </Button>
+    </div>
+  </div>
+))}
+          </Carousel>
+        </Animator>
+      </ScrollPage>
       <div className="flex w-full justify-center">
         <Button
           isIconOnly
-          onClick={sliderRef?.slickPrev}
+          onClick={handlePrev}
           variant="light"
           size="sm"
           className="mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
@@ -67,7 +74,7 @@ export default function HeroBanner({ hero }) {
         </Button>
         <Button
           isIconOnly
-          onPress={handlePause}
+          onClick={handlePause}
           variant="light"
           size="sm"
           className="ml-4 md:ml-2 mr-2 md:mr-0 mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
@@ -76,15 +83,16 @@ export default function HeroBanner({ hero }) {
         </Button>
         <Button
           isIconOnly
-          onClick={sliderRef?.slickNext}
+          onClick={handleNext}
           variant="light"
           size="sm"
           className="ml-2 mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
         >
           <FaChevronRight />
         </Button>
-<Snorlax/>
       </div>
-    </>
+    </ScrollContainer>
   );
-}
+};
+
+export default HeroBanner;

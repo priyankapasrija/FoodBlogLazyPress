@@ -1,6 +1,6 @@
 import Comment from './Comment';
-
-export default function Comments ({/* comments */}) {
+{/* comments */}
+export default function Comments () {
     return ( 
   <div>
     <h2>Comments</h2>

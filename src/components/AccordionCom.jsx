@@ -5,10 +5,11 @@ export default function AccordionCom() {
     "In a bowl, mix ground beef, egg, onion, bread crumbs, Worcestershire, garlic, 1/2 teaspoon salt, and 1/5 teaspoon pepper until well blended. Divide mixture into four equal portions and shape each into a patty about 4 inches wide.";
 
 
-    
+
 
   return (
     <>
+    <div className="flex flex-col justify-start items-start">
     <h1 className="h1" style={{fontSize:'2rem'}}>How to Prepare and Cook it ?</h1>
     <Accordion>
       <AccordionItem key="1" aria-label="Step 1" title="Step 1">
@@ -24,6 +25,7 @@ export default function AccordionCom() {
         {defaultContent}
       </AccordionItem>
     </Accordion>
+    </div>
     </>
   );
 }

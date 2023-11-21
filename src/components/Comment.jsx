@@ -1,8 +1,11 @@
-const Comment = ({ name, content }) => (
-    <div>
-      <h4>{name}</h4>
-      <p>{content}</p>
-    </div>
-  );
-  
-  export default Comment;
+export default function Comment () {
+
+    return (
+
+        <div>
+        <h4>userName:comment.userName</h4>
+        <p>comment.text</p>
+      </div>
+
+    )
+}
