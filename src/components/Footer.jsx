@@ -1,9 +1,8 @@
 import { FaRegCopyright } from "react-icons/fa";
 
-
-export default function Footer({footer}) {
+export default function Footer({ footer }) {
   return (
-    <div className="text-white p-6" style={{backgroundColor:'black'}}>
+    <div className="text-white p-6" style={{ backgroundColor: "black" }}>
       <div className="flex gap-12 justify-evenly">
         <div>
           <h4 className="font-bold hover:text-pink-lavender">PRODUCTS</h4>
@@ -24,13 +23,13 @@ export default function Footer({footer}) {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold hover:text-pink-lavender">COMPONY</h4>
+          <h4 className="font-bold hover:text-pink-lavender">COMPANY</h4>
           <ul>
-          {footer.map((item, index) => (
-       <li className="hover:text-pink-lavender" key={index}>
-              {item.footerItem}
-            </li>
-        ))}
+            {footer.map((item, index) => (
+              <li className="hover:text-pink-lavender" key={index}>
+                {item.footerItem}
+              </li>
+            ))}
           </ul>
         </div>
         <div>
