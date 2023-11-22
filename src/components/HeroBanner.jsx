@@ -17,7 +17,7 @@ import { useFoodBlog } from "../lib/swr";
 
 const HeroBanner = ({ hero }) => {
     const { foodBlog, isLoading } = useFoodBlog();
-    !isLoading && console.log(foodBlog.pages.home.hero);
+    // !isLoading && console.log(foodBlog.pages.home.hero);
 
     const [paused, setPaused] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
