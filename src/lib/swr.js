@@ -21,4 +21,16 @@ const useFoodBlog = () => {
     };
 };
 
-export { useFoodBlog };
+const useRecipePage = (pageId) => {
+    const { data, error, isLoading } = useSWR(
+        `/blogs/6558a1e8b9710288a16552e3/${pageId}`,
+        fetcher
+    );
+    return {
+        recipePage: data,
+        isLoading,
+        isError: error,
+    };
+};
+
+export { useFoodBlog, useRecipePage };
