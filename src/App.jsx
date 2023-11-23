@@ -34,7 +34,7 @@ export default function App() {
                 <Route path="/" element={<Layout /*data={data}*/ />}>
                     <Route index element={<Home /*data={data}*/ />} />
                     <Route
-                        path="/recipe/:_id"
+                        path="/recipe/:pageId"
                         element={<RecipePage /*data={data}*/ />}
                     />
                     <Route path="*" element={<NotFound />} />
