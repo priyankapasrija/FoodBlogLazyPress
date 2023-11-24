@@ -27,12 +27,15 @@ const HeroBanner = ({ hero }) => {
     };
 
     const handleNext = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % hero.length);
+        setCurrentSlide(
+            (prevSlide) => (prevSlide + 1) % foodBlog.pages.home.hero.length
+        );
     };
 
     const handlePrev = () => {
         setCurrentSlide(
-            (prevSlide) => (prevSlide - 1 + hero.length) % hero.length
+            (prevSlide) =>
+                (prevSlide - 1 + hero.length) % foodBlog.pages.home.hero.length
         );
     };
 

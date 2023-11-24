@@ -106,8 +106,12 @@ export default function RecipePage() {
                     </h1>
                     <hr />
                     <ol className="border border-black p-4 borderShadow">
-                        {recipePage?.ingList.map((ing) => {
-                            return <li key={crypto.randomUUID()}>{ing}</li>;
+                        {recipePage?.ingList.map((ingObj) => {
+                            return (
+                                <li
+                                    key={crypto.randomUUID()}
+                                >{`${ingObj.amount} ${ingObj.ing}`}</li>
+                            );
                         })}
                     </ol>
                     {/* <p className="border border-black p-4 borderShadow">
