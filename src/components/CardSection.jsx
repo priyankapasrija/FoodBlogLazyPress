@@ -9,9 +9,10 @@ export default function CardSection(/*{ blogPages }*/) {
     const { foodBlog, isLoading } = useFoodBlog();
 
     const cardsPerSlide = 4;
-    const totalSlides = Math.ceil(
-        foodBlog?.pages.home.blogPages.length / cardsPerSlide
-    );
+    // const totalSlides = Math.ceil(
+    //     foodBlog?.pages.home.blogPages.length / cardsPerSlide
+    // );
+    let totalSlides = 2;
 
     const [currentSlide, setCurrentSlide] = useState(0);
 

@@ -11,7 +11,10 @@ const fetcher = (url) => lazyPress.get(url).then((res) => res.data);
 
 const useFoodBlog = () => {
     const { data, error, isLoading } = useSWR(
-        `/blogs/6558a1e8b9710288a16552e3`,
+        //aangair
+        // `/blogs/6558a1e8b9710288a16552e3`,
+        //zukofire
+        `/blogs/6556441b88a0c7d18ab01535`,
         fetcher
     );
     return {
@@ -23,7 +26,10 @@ const useFoodBlog = () => {
 
 const useRecipePage = (pageId) => {
     const { data, error, isLoading } = useSWR(
-        `/blogs/6558a1e8b9710288a16552e3/${pageId}`,
+        //aangair
+        // `/blogs/6558a1e8b9710288a16552e3/${pageId}`,
+        //zukofire
+        `/blogs/6556441b88a0c7d18ab01535/${pageId}`,
         fetcher
     );
     return {
