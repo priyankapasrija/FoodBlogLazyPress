@@ -15,6 +15,7 @@
     "@react-three/fiber": "^8.15.11",
     "axios": "^1.6.2",
     "daisyui": "^4.4.2",
+    "disqus-react": "^1.1.5",
     "framer-motion": "^10.16.5",
     "preline": "^2.0.0",
     "react": "^18.2.0",
