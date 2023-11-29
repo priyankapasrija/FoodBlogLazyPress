@@ -1,22 +1,13 @@
-// import React from 'react';
 import { useState } from "react";
-import {
-    Animator,
-    ScrollContainer,
-    ScrollPage,
-    batch,
-    Fade,
-    ZoomOut,
-} from "react-scroll-motion";
+import {Animator,ScrollContainer,ScrollPage,batch,Fade,ZoomOut} from "react-scroll-motion";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from "@nextui-org/react";
 import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Spinner } from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
 
 const HeroBanner = ({ hero }) => {
-    const { foodBlog, isLoading } = useFoodBlog();
+    const { isLoading,foodBlog } = useFoodBlog();
     // !isLoading && console.log(foodBlog.pages.home.hero);
 
     const [paused, setPaused] = useState(false);
@@ -39,7 +30,7 @@ const HeroBanner = ({ hero }) => {
         );
     };
 
-    if (isLoading) return <Spinner></Spinner>;
+   if (isLoading) return <div>Loading</div>
     return (
         <ScrollContainer>
             <ScrollPage
@@ -62,7 +53,7 @@ const HeroBanner = ({ hero }) => {
                         {foodBlog.pages.home.hero.map((item, index) => (
                             <div
                                 key={index}
-                                className="relative h-100vh overflow-hidden"
+                                className="relative h-[100vh] overflow-hidden"
                             >
                                 <img
                                     alt="carousel banner"
@@ -72,14 +63,14 @@ const HeroBanner = ({ hero }) => {
                                     style={{
                                         width: "50vw",
                                         marginLeft: "50vw",
-                                        borderLeft: "2px solid black",
+                                        borderLeft: "2px solid #333131",
                                     }}
                                 />
                                 <div
                                     className="absolute top-[10vh] transform -translate-x-1/2 translate-y-1/2 z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center p-4 boxShadow"
                                     style={{
-                                        border: "1px solid black",
-                                        backgroundColor: "yellow",
+                                        border: "1px solid #333131",
+                                        backgroundColor: "#F2D1D1",
                                         left: "35vw",
                                     }}
                                 >
@@ -107,9 +98,9 @@ const HeroBanner = ({ hero }) => {
                                         }
                                         className=" text-black buttonShadow"
                                         style={{
-                                            backgroundColor: "#d7b1bc",
+                                            backgroundColor: "#DAEAF1",
                                             borderRadius: "0px",
-                                            border: "1px solid black",
+                                            border: "1px solid #333131",
                                         }}
                                     >
                                         {item.button}
@@ -124,9 +115,10 @@ const HeroBanner = ({ hero }) => {
                 <Button
                     isIconOnly
                     onClick={handlePrev}
-                    variant="light"
+                    variant="dark"
                     size="sm"
                     className="mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
+                    style={{border:'1px solid #333131'}}
                 >
                     <FaChevronLeft />
                 </Button>
@@ -136,8 +128,9 @@ const HeroBanner = ({ hero }) => {
                     variant="light"
                     size="sm"
                     className="ml-4 md:ml-2 mr-2 md:mr-0 mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
+                    
                 >
-                    {paused ? <FaPlay /> : <FaPause />}
+                    {paused ? <FaPlay style={{border:'1px solid #333131'}} /> : <FaPause style={{border:'1px solid #333131'}} />}
                 </Button>
                 <Button
                     isIconOnly
@@ -145,6 +138,7 @@ const HeroBanner = ({ hero }) => {
                     variant="light"
                     size="sm"
                     className="ml-2 mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
+                    style={{border:'1px solid #333131'}}
                 >
                     <FaChevronRight />
                 </Button>

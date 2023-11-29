@@ -1,83 +1,74 @@
-import { useState } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import RecipeCard from "./RecipeCard";
-import { useFoodBlog } from "../lib/swr";
+import RecipeCard from './RecipeCard';
+import RecipePagination from './RecipePagination';
+import { searchClient } from '../lib/algoliaClient';
+import { InstantSearch, SearchBox, CurrentRefinements,Hits } from 'react-instantsearch';
+import RefinementList from './RefinementList';
+import {useState} from 'react';
 
-export default function CardSection(/*{ blogPages }*/) {
-    const { foodBlog, isLoading } = useFoodBlog();
 
-    const cardsPerSlide = 4;
-    // const totalSlides = Math.ceil(
-    //     foodBlog?.pages.home.blogPages.length / cardsPerSlide
-    // );
-    let totalSlides = 2;
+const CustomHitComponent = ({ hit }) => (
+  <div className="flex flex-row p-2 ml-10 justify-even items-center" style={{width:'100vw'}}>
+    <RecipeCard
+      key={crypto.randomUUID()}
+      title={hit.title}
+      text={hit.text}
+      imgUrl={hit.imgUrl}
+      button={hit.button}
+      region={hit.region}
+      category={hit.category}
+      pageId={hit._id}
+    />
+  </div>
+);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+const CardSection = () => {
+ const [currentPage,setCurrentPage] = useState(1)
 
-    const handleNext = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
-    };
+ const hitsPerPage = 12; 
+ const paginationLimitedTo = 1000;
+ const totalHits = 300; 
 
-    const handlePrev = () => {
-        setCurrentSlide(
-            (prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides
-        );
-    };
-    if (isLoading) return <div>Loading...</div>;
+ const nbPages = Math.min(Math.ceil(totalHits / hitsPerPage), paginationLimitedTo / hitsPerPage);
 
-    return (
-        <>
-            <div className="max-h-100vh">
-                <Carousel
-                    showStatus={false}
-                    showThumbs={false}
-                    infiniteLoop
-                    selectedItem={currentSlide}
-                    onChange={(index) => setCurrentSlide(index)}
-                >
-                    {Array.from({ length: totalSlides }).map(
-                        (_, slideIndex) => (
-                            <div
-                                key={slideIndex}
-                                className="flex overflow-hidden relative"
-                                style={{ height: "80vh", width: "120vw" }}
-                            >
-                                {foodBlog.pages.home.blogPages
-                                    .slice(
-                                        slideIndex * cardsPerSlide,
-                                        (slideIndex + 1) * cardsPerSlide
-                                    )
-                                    .map((card) => (
-                                        <RecipeCard
-                                            key={card._id}
-                                            title={card.title}
-                                            text={card.text}
-                                            imgUrl={card.imgUrl}
-                                            id={card._id}
-                                            button={card.button}
-                                        />
-                                    ))}
-                            </div>
-                        )
-                    )}
-                </Carousel>
-            </div>
-            <div className="flex w-full justify-center">
-                <button
-                    onClick={handlePrev}
-                    className="mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
-                >
-                    <FaChevronLeft />
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="ml-2 mb-8 mt-2 lg:mt-0 dark:text-neutral-300 light:text-foreground text-xl md:text-base"
-                >
-                    <FaChevronRight />
-                </button>
-            </div>
-        </>
-    );
-}
+ 
+  return ( 
+  <>
+  <InstantSearch searchClient={searchClient} indexName="recipes">
+    <SearchBox 
+    classNames={{
+      input:'border border-black ml-[5vw] pl-2',
+      submit:'p-1'}}
+      
+      />
+    <CurrentRefinements
+      includedAttributes={['region', 'tags']}
+      classNames={{
+        root: 'mt-2 mb-4',
+        item: 'bg-white dark:bg-stone-800',
+      }}
+    />
+
+    <div className="flex flex-col md:flex-row justify-start" style={{width:'80vw'}}>
+      <div className="hidden md:block md:flex-row lg:flex-col w-[20vw] md:w-1/5 ml-[5vw]">
+        <h4 className="text-xl font-semibold">Region</h4>
+        <RefinementList showMore={true} attribute="region" />
+        <h4 className="text-xl font-semibold">Tags</h4>
+        <RefinementList showMore={true} attribute="tags" />
+      </div>
+      <div className="flex flex-row flex-wrap">
+            <Hits classNames={{
+              list:'flex flex-row flex-wrap justify-even items-center w-[60vw]',
+              item:'w-[20vw] h-[50vh]'
+            }}
+             hitComponent={CustomHitComponent} />
+          </div>
+
+
+          </div>
+    <RecipePagination nbPages={nbPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+  </InstantSearch>
+</>
+  )
+};
+
+export default CardSection;
