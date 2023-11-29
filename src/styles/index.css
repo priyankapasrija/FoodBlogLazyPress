@@ -18,12 +18,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
+
 
 body,
 html {
     font-family: "Pilated", sans-serif;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: bold    
   }
 
 h1,h2,h3,h4,h5,h6 {
@@ -33,16 +37,16 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .vl {
-  border-left: 3px solid black;
+  border-left: 3px solid #333131;
   height: 100vh;
 }
 
 .boxShadow { 
-  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1)
+  box-shadow: 10px 10px 0px 0px #333131
 }
 
 .buttonShadow { 
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1)
+  box-shadow: 5px 5px 0px 0px #333131
 }
 
 

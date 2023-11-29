@@ -19,7 +19,13 @@ export default function RecipePage() {
   // const [theData, setTheData] = useState(null);
   const { recipePage, isLoading } = useRecipePage(pageId);
   document.title = `Food Blog`;
-  console.log(recipePage);
+  
+
+
+    
+    if (!recipePage) {
+        return <div>Recipe not found</div>;
+      }
 
   // useEffect(() => {
   //     const fetchData = async () => {

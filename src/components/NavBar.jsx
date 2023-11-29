@@ -1,30 +1,19 @@
-import {
-    Navbar,
-    NavbarContent,
-    NavbarItem,
-    Link,
-    Input,
-} from "@nextui-org/react";
-import {
-    DropdownItem,
-    DropdownTrigger,
-    Dropdown,
-    DropdownMenu,
-    Avatar,
-} from "@nextui-org/react";
+import {Navbar,NavbarContent,NavbarItem,Link,Input} from "@nextui-org/react";
+import {DropdownItem,DropdownTrigger,Dropdown,DropdownMenu,Avatar} from "@nextui-org/react";
 import { FaSearch } from "react-icons/fa";
 import { useFoodBlog } from "../lib/swr";
 
+
 export default function NavBar(/*{navBar}*/) {
     const { foodBlog, isLoading } = useFoodBlog();
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div>Loading</div>;
     return (
         <Navbar
             isBordered
             justify="start"
             style={{
                 borderBottom: "1px solid black",
-                backgroundColor: "#d7b1bc",
+                backgroundColor: "#FFE6E6",
             }}
         >
             <NavbarContent
