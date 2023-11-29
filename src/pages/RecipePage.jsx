@@ -46,10 +46,10 @@ export default function RecipePage() {
   //     return null;
   // }
   if (isLoading) return <Spinner />;
-  if (!isLoading) document.title = `Food Blog - ${recipePage.title}`;
+  if (!isLoading) document.title = `${recipePage.title} | Food Blog`;
   return (
     <>
-      <Breadcrumbs className="p-2" style={{ borderBottom: "1px solid black" }}>
+      <Breadcrumbs className="p-" style={{ borderBottom: "1px solid black" }}>
         <BreadcrumbItem className="ml-[50px]" style={{ fontSize: "1rem" }}>
           {" "}
           <Link style={{ textDecoration: "none" }} to="/" relative="path">
