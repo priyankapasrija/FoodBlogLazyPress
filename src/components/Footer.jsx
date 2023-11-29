@@ -4,9 +4,12 @@ import { useFoodBlog } from "../lib/swr";
 export default function Footer(/*{footer}*/) {
     const { foodBlog, isLoading } = useFoodBlog();
 
+    if (!foodBlog) {
+        return <div>Footer not found</div>;}
+
     if (isLoading) return <div>Loading...</div>;
     return (
-        <div className="text-white p-6" style={{ backgroundColor: "black" }}>
+        <div className="text-white p-6" style={{ backgroundColor: "#333131" }}>
             <div className="flex gap-12 justify-evenly">
                 <div>
                     <h4 className="font-bold hover:text-pink-lavender">

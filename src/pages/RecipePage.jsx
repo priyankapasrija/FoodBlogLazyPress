@@ -20,6 +20,10 @@ export default function RecipePage() {
     const { recipePage, isLoading } = useRecipePage(pageId);
 
     console.log(recipePage);
+    if (!recipePage) {
+        return <div>Recipe not found</div>;
+      }
+
 
     // useEffect(() => {
     //     const fetchData = async () => {
