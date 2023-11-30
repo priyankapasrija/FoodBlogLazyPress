@@ -1,12 +1,12 @@
-import {useState} from 'react';
-import {Card, Skeleton, Button} from "@nextui-org/react";
+import {useState, useEffect} from 'react';
+import {Card, Skeleton} from "@nextui-org/react";
 
 export default function SkeletonForCard() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const toggleLoad = () => {
+  useEffect (() => {
     setIsLoaded(!isLoaded);
-  };
+  },[isLoaded]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -26,9 +26,6 @@ export default function SkeletonForCard() {
           </Skeleton>
         </div>
       </Card>
-      <Button size="sm" variant="flat" color="secondary" onPress={toggleLoad}>
-        {isLoaded ? "Show" : "Hide"} Skeleton
-      </Button>
     </div>
   );
 }
