@@ -64,5 +64,9 @@ h1,h2,h3,h4,h5,h6 {
   box-shadow: 5px 5px 0px 0px #333131
 }
 
+.iconShadow { 
+  box-shadow: 4px 4px 0px 0px #333131
+}
+
 
 

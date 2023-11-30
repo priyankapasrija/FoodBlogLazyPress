@@ -1,33 +1,41 @@
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { PiForkKnifeFill } from "react-icons/pi";
-//import {  } from "react-icons/fa6";
+import {useState, useEffect} from 'react';
+
 
 export default function RecipeCard({ title,imgUrl,button,region,category,pageId }) {
  
-  
-  
   const navigate = useNavigate();
+  const [isDessert,setIsDessert] = useState(true);
+
+  useEffect( ( ) => {
+  if (category === 'Dessert') {
+    setIsDessert(false)
+  }
+ 
+  },[category])
+
 
   const handleClick = () => {
     navigate(`/recipe/${pageId}`);
   };
 
   return (
-    <Card className="border rounded-none boxShadow mx-5" style={{ borderColor: '#333131' }}>
-      <CardHeader className="flex-col items-start justify-center">
-        
-        <h4
-          style={{fontFamily:'Unisans-Heavy'}}>
+    <Card className="border rounded-none boxShadow mx-5 bg-[#ffffb7]" style={{ borderColor: '#333131' }}>
+      <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'12vh'}}>
+        <h4 
+          style={{fontFamily:'Unisans-Heavy',lineHeight:'1rem'}}>
           {title}
         </h4>
         <div className="flex flex-col items-start"
             >
           <p className="text-tiny flex mb-1 items-center"
-              style={{fontWeight:'900',marginTop:'-0.8vh'}}>
+              style={{fontWeight:'900'}}>
               <PiForkKnifeFill />
               &nbsp;{region}{" "}Cuisine</p>
-              <p className="text-tiny border border-black p-[0.5] bg-[#F2D1D1] px-2"
+              <p className='text-tiny border border-black p-[0.5] px-2
+              {{isDessert ? (bg-[#F2D1D1]) : (bg-white)}}'
               style={{fontFamily:'UniSans-Heavy',fontSize:'0.5rem'}}>
               {category}</p>
         </div>
@@ -47,7 +55,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
         <div className="items-end flex flex-col"> 
          <Button
         onClick={handleClick}
-        className="button buttonShadow rounded-none "
+        className="button buttonShadow rounded-none mt-[2vh] "
         style={{
           border: "1px solid black",
           backgroundColor: "#DAEAF1",
