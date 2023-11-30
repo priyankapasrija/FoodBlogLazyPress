@@ -1,20 +1,13 @@
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { PiForkKnifeFill } from "react-icons/pi";
-import {useState, useEffect} from 'react';
+import { ctgryColor } from "../utils/category";
 
 
 export default function RecipeCard({ title,imgUrl,button,region,category,pageId }) {
  
   const navigate = useNavigate();
-  const [isDessert,setIsDessert] = useState(true);
 
-  useEffect( ( ) => {
-  if (category === 'Dessert') {
-    setIsDessert(false)
-  }
- 
-  },[category])
 
 
   const handleClick = () => {
@@ -23,7 +16,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
 
   return (
     <Card className="border rounded-none boxShadow mx-5 bg-[#ffffb7]" style={{ borderColor: '#333131' }}>
-      <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'12vh'}}>
+      <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'15vh'}}>
         <h4 
           style={{fontFamily:'Unisans-Heavy',lineHeight:'1rem'}}>
           {title}
@@ -34,8 +27,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
               style={{fontWeight:'900'}}>
               <PiForkKnifeFill />
               &nbsp;{region}{" "}Cuisine</p>
-              <p className='text-tiny border border-black p-[0.5] px-2
-              {{isDessert ? (bg-[#F2D1D1]) : (bg-white)}}'
+              <p className={`text-tiny text-white border border-black p-[0.5] px-2 ${ctgryColor(category)}`}
               style={{fontFamily:'UniSans-Heavy',fontSize:'0.5rem'}}>
               {category}</p>
         </div>

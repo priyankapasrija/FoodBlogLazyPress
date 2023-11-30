@@ -15,7 +15,7 @@ function CustomHitComponent ({ hit }) {
   useEffect(() => {
     
     window.scrollTo({
-        top: 900,
+        top: 700,
         left: 0,
         behavior: "smooth",
     });
@@ -75,7 +75,7 @@ const CardSection = () => {
       <div className="flex flex-row flex-wrap">
             <Hits classNames={{
               list:'flex flex-row flex-wrap justify-center items-center',
-              item:'w-[20vw] h-[45vh]'
+              item:'w-[20vw] h-[55vh]'
             }}
              hitComponent={CustomHitComponent} />
           </div>
