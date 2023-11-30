@@ -3,12 +3,21 @@ import RecipePagination from './RecipePagination';
 import { searchClient } from '../lib/algoliaClient';
 import { InstantSearch, SearchBox, CurrentRefinements,Hits } from 'react-instantsearch';
 import RefinementList from './RefinementList';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
+import SkeletonForCard from './SkeletonForCard';
 
+function CustomHitComponent ({ hit }) { 
+  const [isLoading,setIsLoading]= useState(true);
 
-const CustomHitComponent = ({ hit }) => (
-  <div className="flex flex-row p-2 ml-10 justify-even items-center" style={{width:'100vw'}}>
-    <RecipeCard
+  useEffect (() => {
+ setIsLoading(false)
+  },[isLoading]);
+  
+  return(
+  <div className="flex flex-row flex-wrap justify-even items-center" style={{width:'100vw'}}>
+    {isLoading 
+    ? (<SkeletonForCard/>)  
+    : ( <RecipeCard
       key={crypto.randomUUID()}
       title={hit.title}
       text={hit.text}
@@ -17,9 +26,9 @@ const CustomHitComponent = ({ hit }) => (
       region={hit.region}
       category={hit.category}
       pageId={hit._id}
-    />
+    />) }
   </div>
-);
+)}
 
 const CardSection = () => {
  const [currentPage,setCurrentPage] = useState(1)
