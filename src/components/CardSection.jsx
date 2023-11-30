@@ -1,20 +1,28 @@
 import RecipeCard from './RecipeCard';
-import RecipePagination from './RecipePagination';
 import { searchClient } from '../lib/algoliaClient';
-import { InstantSearch, SearchBox, CurrentRefinements,Hits } from 'react-instantsearch';
+import { InstantSearch, SearchBox, CurrentRefinements,Hits,Pagination } from 'react-instantsearch';
 import RefinementList from './RefinementList';
 import {useState,useEffect} from 'react';
 import SkeletonForCard from './SkeletonForCard';
 
 function CustomHitComponent ({ hit }) { 
-  const [isLoading,setIsLoading]= useState(true);
-
-  useEffect (() => {
+  const [isLoading,setIsLoading] = useState(true);
+  
+ useEffect (() => {
  setIsLoading(false)
   },[isLoading]);
+
+  useEffect(() => {
+    
+    window.scrollTo({
+        top: 900,
+        left: 0,
+        behavior: "smooth",
+    });
+}, []); 
   
   return(
-  <div className="flex flex-row flex-wrap justify-even items-center" style={{width:'100vw'}}>
+  <div>
     {isLoading 
     ? (<SkeletonForCard/>)  
     : ( <RecipeCard
@@ -31,50 +39,50 @@ function CustomHitComponent ({ hit }) {
 )}
 
 const CardSection = () => {
- const [currentPage,setCurrentPage] = useState(1)
-
- const hitsPerPage = 12; 
- const paginationLimitedTo = 1000;
- const totalHits = 300; 
-
- const nbPages = Math.min(Math.ceil(totalHits / hitsPerPage), paginationLimitedTo / hitsPerPage);
-
+ 
  
   return ( 
   <>
   <InstantSearch searchClient={searchClient} indexName="recipes">
+    <div className='mt-5 flex justify-center'>
     <SearchBox 
+    placeholder={'Search for recipes'}
     classNames={{
-      input:'border border-black ml-[5vw] pl-2',
-      submit:'p-1'}}
       
+      input:'border border-[#333131] pl-2 buttonShadow placeholder:text-slate-300',
+      submit:'p-1 border border-[#333131] p-[0.5rem] bg-[#DAEAF1] iconShadow'}}
       />
+    </div>
     <CurrentRefinements
-      includedAttributes={['region', 'tags']}
+      includedAttributes={['region', 'category']}
       classNames={{
-        root: 'mt-2 mb-4',
-        item: 'bg-white dark:bg-stone-800',
+        root: 'mt-2 mb-2 ml-[5vw] flex-row flex items-center',
+        item: 'bg-white text-[#333131] text-[0.7rem]',
       }}
     />
 
-    <div className="flex flex-col md:flex-row justify-start" style={{width:'80vw'}}>
-      <div className="hidden md:block md:flex-row lg:flex-col w-[20vw] md:w-1/5 ml-[5vw]">
-        <h4 className="text-xl font-semibold">Region</h4>
+    <div className="flex flex-col md:flex-row justify-start" style={{width:'100vw'}}>
+      <div className="hidden md:block md:flex-row lg:flex-col  md:w-1/5 ml-[5vw] px-1 boxShadow"
+            style={{border:'1px solid #333131'}}>
+        <h4 style={{fontFamily:'UniSans-Heavy',fontSize:'1rem'}}>Region:</h4>
         <RefinementList showMore={true} attribute="region" />
-        <h4 className="text-xl font-semibold">Tags</h4>
-        <RefinementList showMore={true} attribute="tags" />
+        <h4 style={{fontFamily:'UniSans-Heavy',fontSize:'1rem'}}>Category:</h4>
+        <RefinementList showMore={true} attribute="category"
+        classNames={{
+          item:'text-[0.3rem]'
+        }} />
       </div>
       <div className="flex flex-row flex-wrap">
             <Hits classNames={{
-              list:'flex flex-row flex-wrap justify-even items-center w-[60vw]',
-              item:'w-[20vw] h-[50vh]'
+              list:'flex flex-row flex-wrap justify-center items-center',
+              item:'w-[20vw] h-[45vh]'
             }}
              hitComponent={CustomHitComponent} />
           </div>
-
-
           </div>
-    <RecipePagination nbPages={nbPages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+          <Pagination  totalPages={25}   classNames={{
+        selectedItem:'border bg-black text-white',list:'flex justify-center items-center mb-2',
+        item:'border p-2 m-1'}} />
   </InstantSearch>
 </>
   )
