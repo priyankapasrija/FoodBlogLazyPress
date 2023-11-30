@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 // import { useState, useEffect } from "react";
 // import { getSinglePageContent } from '../src/lib/dbBlog';
 import Layout from "./components/Layout";
+import ContactUs from "./pages/ContactUs";
 
 export default function App() {
     // const [data, setData] = useState({ hero: [], navBar: [], blogPages: [],footer: [] });
@@ -36,6 +37,9 @@ export default function App() {
                     <Route
                         path="/recipe/:pageId"
                         element={<RecipePage /*data={data}*/ />}
+                    />
+                    <Route path='/contactus'
+                           element={<ContactUs/>}
                     />
                     <Route path="*" element={<NotFound />} />
                 </Route>
