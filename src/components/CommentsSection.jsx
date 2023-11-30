@@ -1,9 +1,12 @@
 import { DiscussionEmbed } from "disqus-react";
 
+/**
+ * Enables the Disqus comments module and provides settings
+ * @param {*} page 
+ * @returns 
+ */
 const CommentsSection = (page) => {
   const url = typeof window !== "undefined" ? window.location.href : "";
-
-  console.log(`🅱️age:\n`, page);
 
   const config = {
     url: url,
