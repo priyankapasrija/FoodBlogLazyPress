@@ -1,50 +1,54 @@
 @font-face {
-    font-family: "Montserrat";
-    src: url("../styles/assets/typography/Montserrat-VariableFont_wght.ttf");
-  }
-  
-  @font-face {
-    font-family: "Barlow Condensed";
-    src: url("../styles/assets/typography/BarlowCondensed-Bold.ttf");
-    
-  }  
+  font-family: "Montserrat";
+  src: url("../styles/assets/typography/Montserrat-VariableFont_wght.ttf");
+}
 
-  @font-face {
-    font-family: 'Pilated';
-    src: url('./assets/typography/PilatedfreeRegular-K7xPo.otf');
-  }  
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../styles/assets/typography/BarlowCondensed-Bold.ttf");
+}
 
-  @font-face {
-    font-family: "Unisans-Heavy";
-    src: url("../styles/assets/typography/UniSans-Heavy.otf");
-  }
+@font-face {
+  font-family: "Pilated";
+  src: url("./assets/typography/PilatedfreeRegular-K7xPo.otf");
+}
 
-  @font-face {
-    font-family: "UniSans-Thin";
-    src: url("../styles/assets/typography/UniSans-Thin.otf");
-  }
+@font-face {
+  font-family: "Unisans-Heavy";
+  src: url("../styles/assets/typography/UniSans-Heavy.otf");
+}
 
-  @font-face {
-    font-family: "Agina";
-    src: url("../styles/assets/typography/Agina.otf");
-  }
+@font-face {
+  font-family: "UniSans-Thin";
+  src: url("../styles/assets/typography/UniSans-Thin.otf");
+}
+
+@font-face {
+  font-family: "Agina";
+  src: url("../styles/assets/typography/Agina.otf");
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
 }
 
 body,
 html {
-    font-family: "Agina", sans-serif;
-    font-size: 18px;
-    font-weight: 1200 
-  }
+  font-family: "Agina", sans-serif;
+  font-size: 18px;
+  font-weight: 1200;
+}
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Unisans-Heavy", sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -55,12 +59,12 @@ h1,h2,h3,h4,h5,h6 {
   height: 100vh;
 }
 
-.boxShadow { 
-  box-shadow: 10px 10px 0px 0px #333131
+.boxShadow {
+  box-shadow: 10px 10px 0px 0px #333131;
 }
 
-.buttonShadow { 
-  box-shadow: 5px 5px 0px 0px #333131
+.buttonShadow {
+  box-shadow: 5px 5px 0px 0px #333131;
 }
 
 hr {
@@ -73,19 +77,25 @@ hr {
 }
 
 hr:after {
-  background: #fff;
-  content: '🥕';
+  background: #ffffb7;
+  border: 2px solid #333;
+  content: "🥕";
   padding: 0 4px;
   position: relative;
   top: -13px;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
-.iconShadow { 
-  box-shadow: 4px 4px 0px 0px #333131
+.iconShadow {
+  box-shadow: 4px 4px 0px 0px #333131;
 }
 
 .shadow-hard {
-  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
-  -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
-  -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75) !important;
+  -moz-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75) !important;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75) !important;
+}
+
+.bg-dots {
+  background-image: url("https://roundandround.sydney/build/assets/bg-dots-e39aed69.png");
 }
