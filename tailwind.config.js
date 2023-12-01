@@ -19,6 +19,7 @@ const config = {
         "black-3": "#282828",
         card: "#FFFFB7",
         button: "#DAEAF1",
+        offwhite: "#F1F1F1",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],

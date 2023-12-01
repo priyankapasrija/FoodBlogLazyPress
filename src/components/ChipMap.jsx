@@ -17,7 +17,7 @@ const ChipMap = ({ array }) => {
     <div className="flex">
       <p
         key={crypto.randomUUID}
-        className={`text-xs not-italic text-white border border-black p-[0.5] px-2 ${ctgryColor(
+        className={`text-xs not-italic text-black-3 border border-black p-[0.5] px-2 ${ctgryColor(
           array[0]
         )} mr-2`}
         style={{ fontFamily: "UniSans-Heavy" }}
@@ -26,7 +26,7 @@ const ChipMap = ({ array }) => {
       </p>
       <p
         key={crypto.randomUUID + 1}
-        className={`text-xs not-italic text-white border border-black p-[0.5] px-2 ${ctgryColor(
+        className={`text-xs not-italic text-black-3 border border-black p-[0.5] px-2 ${ctgryColor(
           array[1]
         )}`}
         style={{ fontFamily: "UniSans-Heavy" }}
