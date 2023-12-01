@@ -16,7 +16,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
 
   return (
     <Card className="border rounded-none boxShadow mx-5 bg-[#FF8F60]" style={{ borderColor: 'black' }}>
-      <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'15vh'}}>
+      <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'20vh'}}>
         <h4 
           className="uppercase"
           style={{fontFamily:'Montserrat',lineHeight:'1.2rem',fontSize:'1.5rem'}}>
@@ -34,21 +34,21 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
         </div>
       </CardHeader>
       <CardBody className="overflow-hidden"
-      style={{marginTop:'-1.8vh'}}>
+      style={{marginTop:'-3vh'}}>
         <Image
           alt="Food Image"
           className="object-cover rounded-none mb-2"
           src={imgUrl}
           style={{
             border: "1px solid #333131",
-            width: "17vw",
-            height: "20vh",
+            width: "25vw",
+            height: "25vh",
           }}
         />
         <div className="items-end flex flex-col"> 
          <Button
         onClick={handleClick}
-        className="button buttonShadow rounded-none mt-[2vh] uppercase "
+        className="button buttonShadow rounded-none my-[3vh] uppercase "
         style={{
           border: "1px solid black",
           backgroundColor: "#e4f201",
