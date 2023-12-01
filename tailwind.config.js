@@ -17,6 +17,8 @@ const config = {
         "pink-lavender": "#E0B0D5",
         "black-2": "#1D1D1D",
         "black-3": "#282828",
+        card: "#FFFFB7",
+        button: "#DAEAF1",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
@@ -25,6 +27,9 @@ const config = {
       },
       shadow: {
         hard: "",
+      },
+      backgroundImage: {
+        dots: "https://roundandround.sydney/build/assets/bg-dots-e39aed69.png",
       },
     },
   },

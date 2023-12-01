@@ -26,7 +26,7 @@ export default function RecipePage() {
   // console.log(`🍟\n`, chipData);
 
   return (
-    <>
+    <div className="">
       <Breadcrumbs className="py-2" style={{ borderBottom: "1px solid black" }}>
         <BreadcrumbItem className="ml-[50px]" style={{ fontSize: "1rem" }}>
           <Link style={{ textDecoration: "none" }} to="/" relative="path">
@@ -49,29 +49,32 @@ export default function RecipePage() {
         />
         <Parallax speed={30}>
           <div
-            className="shadow-hard absolute ml-12 my-[-350px] italic border-1 border-black p-6 w-fit flex justify-center align-middle flex-col"
-            style={{ backgroundColor: "#feea2e" }}
+            className="shadow-hard absolute ml-12 my-[-350px] italic border-2 border-black p-6 w-fit flex justify-center align-middle flex-col bg-card"
+            // style={{ backgroundColor: "#feea2e" }}
           >
             <p className="text-6xl font-bold align-middle my-auto">
               {recipePage.title}
             </p>
             <p className="text-xl align-middle my-auto">{recipePage.text}</p>
-            <div aria-hidden>
+            <div>
               <ChipMap array={chipData} />
             </div>
           </div>
         </Parallax>
       </div>
-      <div className="bg-white bg-fixed w-full font-montserrat font-normal text-lg">
-        <div aria-hidden className="flex justify-between ml-4 mr-20">
+      <div className="bg-button bg-fixed w-full font-montserrat font-normal text-lg">
+        <div className="flex justify-between ml-4 mr-20">
           <div className="w-2/6 min-h-screen">
-            <div aria-hidden className="p-5 w-full sticky top-20 pr-12">
+            <div className="p-5 w-full sticky top-20 pr-12">
               <h1 className="h1 text-5xl mb-2">Ingredients</h1>
-              <ul className="border-2 border-black p-4 shadow-hard w-full bg-white mb-6">
+              <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-6">
                 {recipePage?.ingList.map((ingObj) => {
                   return (
-                    <li key={crypto.randomUUID()} className="flex justify-between mb-1">
-                      <b>{`${ingObj.ing}`}</b>{" "}{`${ingObj.amount}`}
+                    <li
+                      key={crypto.randomUUID()}
+                      className="flex justify-between mb-1"
+                    >
+                      <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
                     </li>
                   );
                 })}
@@ -83,7 +86,7 @@ export default function RecipePage() {
             {recipePage?.steps.map((step, i) => {
               return (
                 <div key={crypto.randomUUID()}>
-                  <h3 className="h3 font-barlow-condensed font-bold mt-4 mb-1">
+                  <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4 mb-1">
                     Step {i + 1}
                   </h3>
                   <p className="font-normal first-letter:font-semibold first-letter:text-xl">
@@ -94,12 +97,14 @@ export default function RecipePage() {
             })}
           </div>
         </div>
-        <hr className="mb-6" />
-        <div className="w-8/12 mx-auto mb-20">
-          <CommentsSection page={recipePage} />
+        <hr className="" />
+        <div className="w-full bg-dots py-20">
+          <div className="w-10/12 mx-auto bg-red-100 border-2 border-black shadow-hard p-4">
+            <CommentsSection page={recipePage} />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

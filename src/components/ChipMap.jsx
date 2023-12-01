@@ -1,9 +1,10 @@
-import { Chip } from "@nextui-org/react";
+// import { Chip } from "@nextui-org/react";
+import { ctgryColor } from "../utils/category";
 
 /**
  * Maps an array and returns each item as a pretty, small compact grey chip.
  * @param {*} array Accept an array and only an array
- * @returns Small compact grey chip elements
+ * @returns Small compact chip elements
  * @link https://github.com/Mochibunn , 2023
  */
 const ChipMap = ({ array }) => {
@@ -11,19 +12,29 @@ const ChipMap = ({ array }) => {
     console.error(`P\n`, array);
     return <p>Check console for error</p>;
   } //added this line here
-  const result = array.map((item) => {
-    return (
-      <Chip
-        className="mr-2 my-1 p-1 inline"
-        iscompact="true" //Technically writing just "isCompact" will work but the console throws a warning in that case.
-        key={`${item}`}
-        size="lg"
+
+  return (
+    <div className="flex">
+      <p
+        key={crypto.randomUUID}
+        className={`text-xs not-italic text-white border border-black p-[0.5] px-2 ${ctgryColor(
+          array[0]
+        )} mr-2`}
+        style={{ fontFamily: "UniSans-Heavy" }}
       >
-        {`${item}`}
-      </Chip>
-    );
-  });
-  return result;
+        {array[0]}
+      </p>
+      <p
+        key={crypto.randomUUID + 1}
+        className={`text-xs not-italic text-white border border-black p-[0.5] px-2 ${ctgryColor(
+          array[1]
+        )}`}
+        style={{ fontFamily: "UniSans-Heavy" }}
+      >
+        {array[1]}
+      </p>
+    </div>
+  );
 };
 
 export default ChipMap;
