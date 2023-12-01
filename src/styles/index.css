@@ -68,16 +68,16 @@ h6 {
 }
 
 .vl {
-  border-left: 3px solid #333131;
+  border-left: 3px solid #000000;
   height: 100vh;
 }
 
 .boxShadow {
-  box-shadow: 10px 10px 0px 0px #333131;
+  box-shadow: 10px 10px 0px 0px #000000;
 }
 
 .buttonShadow {
-  box-shadow: 5px 5px 0px 0px #333131;
+  box-shadow: 5px 5px 0px 0px #000000;
 }
 
 hr {
