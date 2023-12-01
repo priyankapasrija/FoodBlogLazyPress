@@ -1,24 +1,14 @@
-import {CircularProgress} from "@nextui-org/react";
-import {useEffect,useState} from 'react';
+import Lottie from "lottie-react";
+import Hamburger from '../styles/assets/animation/LoadingBurger.json'; 
 
 export default function Spinner() {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setValue((v) => (v >= 100 ? 0 : v + 10));
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
+ 
   return (
-    <CircularProgress
-      aria-label="Loading..."
-      size="lg"
-      value={value}
-      color="warning"
-      showValueLabel={true}
-    />
+   <div className="flex justify-center items-center h-[100vh] z-50"
+   style={{width:'40vw'}}
+   speed={15}>
+<Lottie animationData={Hamburger}>
+</Lottie>
+   </div>
   );
 }

@@ -73,7 +73,7 @@ const CardSection = () => {
       </div>
       <div className="flex flex-row flex-wrap">
             <Hits classNames={{
-              list:'flex flex-row flex-wrap justify-center items-center',
+              list:'flex flex-row flex-wrap justify-center items-center ml-3',
               item:'w-[20vw] h-[50vh]'
             }}
              hitComponent={CustomHitComponent} />
