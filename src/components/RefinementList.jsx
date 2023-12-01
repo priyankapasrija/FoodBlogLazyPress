@@ -26,7 +26,7 @@ export default function CMSRefinementList(props) {
         maxLength={512}
         onChange={(event) => searchForItems(event.currentTarget.value)}
       /> */}
-            <ul style={{width:'12vw'}} >
+            <ul style={{width:'11vw'}} >
                 {items.map((item) => (
                     <li key={item.label} className="mx-1">
                         <label className='items-center flex mb-1'>
