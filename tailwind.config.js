@@ -21,6 +21,10 @@ const config = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         "barlow-condensed": ["Barlow Condensed", "sans-serif"],
+        metropolis: ["Metropolis", "sans-serif"],
+      },
+      shadow: {
+        hard: "",
       },
     },
   },
