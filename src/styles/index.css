@@ -1,3 +1,7 @@
+/*Latest Fonts*/
+@import url('https://use.typekit.net/qsi3xvz.css');
+
+
 @font-face {
   font-family: "Montserrat";
   src: url("../styles/assets/typography/Montserrat-VariableFont_wght.ttf");
@@ -28,6 +32,15 @@
   src: url("../styles/assets/typography/Agina.otf");
 }
 
+
+
+  @font-face {
+    font-family: "Baryton";
+    src: url("../styles/assets/typography/Baryton-Regular.woff2");
+  }
+
+  
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,10 +51,10 @@
 
 body,
 html {
-  font-family: "Agina", sans-serif;
-  font-size: 18px;
-  font-weight: 1200;
-}
+  font-family: "chapman", sans-serif;
+  font-weight: 400;
+  font-size: 18px,
+ }
 
 h1,
 h2,

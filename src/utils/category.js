@@ -1,39 +1,39 @@
 const ctgryColor = (category) => {
     switch (category) {
         case "Dessert":
-            return "bg-slate-500";
+            return "bg-slate-200";
         case "Beef":
-            return "bg-orange-500";
+            return "bg-orange-200";
         case "Vegetarian":
-            return "bg-red-700";
+            return "bg-red-300";
         case "Chicken":
-            return "bg-blue-500";
+            return "bg-blue-200";
         case "Seafood":
-            return "bg-violet-400";
+            return "bg-violet-100";
         case "Pork":
-            return "bg-lime-500";
+            return "bg-lime-200";
         case "Side":
-            return "bg-fuchsia-700";
+            return "bg-fuchsia-300";
         case "Lamb":
-            return "bg-yellow-400";
+            return "bg-yellow-200";
         case "Miscellaneous":
-            return "bg-amber-700";
+            return "bg-amber-300";
         case "Pasta":
-            return "bg-pink-600";
+            return "bg-pink-200";
         case "Breakfast":
-            return "bg-yellow-900";
+            return "bg-yellow-300";
         case "Starter":
-            return "bg-cyan-200";
+            return "bg-cyan-100";
         case "Vegan":
-            return "bg-lime-700";
+            return "bg-lime-300";
         case "Cool":
-            return "bg-violet-800";
+            return "bg-violet-300";
         case "Goat":
-            return "bg-violet-950";
+            return "bg-violet-400";
         case "Misc":
-            return "bg-amber-900";
+            return "bg-amber-400";
         default:
-            return "bg-slate-700";
+            return "bg-slate-300";
     }
 };
 
