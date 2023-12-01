@@ -1,11 +1,11 @@
 @font-face {
     font-family: "Montserrat";
-    src: url("https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_bZF3g3D_u50.woff2");
+    src: url("../styles/assets/typography/Montserrat-VariableFont_wght.ttf");
   }
   
   @font-face {
     font-family: "Barlow Condensed";
-    src: url("https://fonts.gstatic.com/s/barlowcondensed/v7/wlphgxjLBV1hqnzfr-4cffMp6Tg6kgZ-v2rvL4A.woff2");
+    src: url("../styles/assets/typography/BarlowCondensed-Bold.ttf");
     
   }  
 
@@ -37,7 +37,6 @@
   box-sizing: border-box;
 }
 
-
 body,
 html {
     font-family: "Agina", sans-serif;
@@ -64,5 +63,29 @@ h1,h2,h3,h4,h5,h6 {
   box-shadow: 5px 5px 0px 0px #333131
 }
 
+hr {
+  border: none;
+  border-top: 2px solid #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
 
+hr:after {
+  background: #fff;
+  content: '🥕';
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
 
+.iconShadow { 
+  box-shadow: 4px 4px 0px 0px #333131
+}
+
+.shadow-hard {
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
+  -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
+  -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75) !important;
+}

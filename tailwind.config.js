@@ -23,6 +23,9 @@ const config = {
         "barlow-condensed": ["Barlow Condensed", "sans-serif"],
         metropolis: ["Metropolis", "sans-serif"],
       },
+      shadow: {
+        hard: "",
+      },
     },
   },
   darkMode: "class",

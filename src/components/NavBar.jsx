@@ -1,6 +1,6 @@
-import {Navbar,NavbarContent,NavbarItem,Link,Input} from "@nextui-org/react";
+import {Navbar,NavbarContent,NavbarItem,Link} from "@nextui-org/react";
 import {DropdownItem,DropdownTrigger,Dropdown,DropdownMenu,Avatar} from "@nextui-org/react";
-import { FaSearch } from "react-icons/fa";
+
 import { useFoodBlog } from "../lib/swr";
 
 
@@ -10,27 +10,27 @@ export default function NavBar(/*{navBar}*/) {
     return (
         <Navbar
             isBordered
-            justify="start"
             style={{
-                borderBottom: "1px solid black",
+                borderBottom: "1px solid #333131",
                 backgroundColor: "#FFE6E6",
             }}
         >
             <NavbarContent
-                className="hidden sm:flex gap-3"
-                style={{ marginLeft: "-10vw" }}
+                className="hidden sm:flex"
+                style={{ marginLeft: "-19vw" }}
             >
                 {foodBlog.pages.home.navBar.map((item, index) => (
                     <NavbarItem key={index} isActive={index === 0}>
                         <Link
                             href={item.href}
-                            className="p-2"
+                            className="px-2"
                             style={{
                                 marginLeft: "-1vw",
-                                borderRight: "1px solid black",
+                                borderRight: "1px solid #333131",
                                 textDecoration: "none",
-                                color: "black",
-                                fontWeight: index === 0 ? "bolder" : "normal",
+                                color: "#333131",
+                                fontWeight: index === 0 ? "900" : "200",
+                                fontSize:'0.8rem'
                             }}
                         >
                             {item.menuItem}
@@ -40,25 +40,13 @@ export default function NavBar(/*{navBar}*/) {
             </NavbarContent>
 
             <NavbarContent as="div" className="items-center" justify="center">
-                <Input
-                    classNames={{
-                        base: "max-w-full sm:max-w-[10rem] h-10",
-                        mainWrapper: "h-full",
-                        input: "text-small",
-                        inputWrapper:
-                            "h-full font-normal text-default-500 border border-black buttonShadow dark:border-white bg-white dark:bg-black rounded-none",
-                    }}
-                    placeholder="Type to search..."
-                    size="sm"
-                    startContent={<FaSearch size={18} />}
-                    type="search"
-                />
+               
                 <Dropdown placement="bottom-end">
                     <DropdownTrigger>
                         <Avatar
                             isBordered
                             as="button"
-                            className="transition-transform border border-black buttonShadow"
+                            className="transition-transform border border-[#333131] buttonShadow"
                             style={{ borderRadius: "0" }}
                             name="Jason Hughes"
                             size="sm"
