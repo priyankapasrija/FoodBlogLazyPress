@@ -62,7 +62,7 @@ export default function RecipePage() {
           </div>
         </Parallax>
       </div>
-      <div className="bg-button bg-fixed w-full font-montserrat font-normal text-lg">
+      <div className="bg-offwhite bg-fixed w-full font-montserrat font-normal text-lg">
         <div className="flex justify-between ml-4 mr-20">
           <div className="w-2/6 min-h-screen">
             <div className="p-5 w-full sticky top-20 pr-12">
@@ -98,7 +98,7 @@ export default function RecipePage() {
           </div>
         </div>
         <hr className="" />
-        <div className="w-full bg-dots py-20">
+        <div className="w-full bg-dots bg-button py-20">
           <div className="w-10/12 mx-auto bg-red-100 border-2 border-black shadow-hard p-4">
             <CommentsSection page={recipePage} />
           </div>
