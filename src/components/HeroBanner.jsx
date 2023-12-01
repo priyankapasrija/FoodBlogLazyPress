@@ -20,6 +20,7 @@ const HeroBanner = () => {
                     height: "100vh",
                     marginTop: "-8vh",
                     border: "1px solid black",
+                    
                 }}
             >
                 <Animator animation={batch(Fade())}>
@@ -30,38 +31,41 @@ const HeroBanner = () => {
                         showStatus={false}
                         showThumbs={false}
                         infiniteLoop
-                        style={{ height: "100vh", overflow: "hidden" }}
-                        showArrows={true}
+                        style={{ height: "100vh", overflow: "hidden"}}
+                        showArrows={true}                     
                     >
                         {foodBlog.pages.home.hero.map((item, index) => (
                             <div
                                 key={index}
-                                className="relative h-[100vh] overflow-hidden"
+                                className="relative h-[100vh] w-[]overflow-x-hidden bg-[#717ff7]"
                             >
                                 <img
                                     alt="carousel banner"
                                     src={item.imgUrl}
                                     draggable="false"
-                                    className="object-cover h-[100vh]"
+                                    className="object-cover h-[100vh] boxShadow"
                                     style={{
-                                        width: "50vw",
-                                        marginLeft: "50vw",
-                                        borderLeft: "2px solid #333131",
+                                        width: "40vw",
+                                        height:'50vh',
+                                        marginLeft: "45vw",
+                                        marginTop:'25vh',
+                                        border: "4px solid black",
                                     }}
                                 />
                                 <div
-                                    className="absolute top-[10vh] transform -translate-x-1/2 translate-y-1/2 z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center p-4 boxShadow"
+                                    className="absolute  z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center uppercase"
                                     style={{
-                                        border: "1px solid #333131",
-                                        backgroundColor: "#ffffb7",
-                                        left: "35vw",
                                     }}
                                 >
                                     <h1
-                                        className="font-bold text-black"
+                                        className="text-black mb-2"
                                         style={{
-                                            fontFamily: "Pilated",
-                                            fontSize: "5rem",
+                                            fontFamily: "Baryton",
+                                            fontSize: "7rem",
+                                            lineHeight:1,
+                                            marginTop:'-55vh',
+                                            maxWidth:'50vw'
+                                            
                                         }}
                                     >
                                         {item.title}
@@ -79,11 +83,12 @@ const HeroBanner = () => {
                                         onClick={() =>
                                             console.log("CTA Clicked")
                                         }
-                                        className=" text-black buttonShadow"
+                                        className=" text-black buttonShadow uppercase"
                                         style={{
-                                            backgroundColor: "#DAEAF1",
+                                            fontFamily:'Montserrat',
+                                            backgroundColor: "#f0ff00",
                                             borderRadius: "0px",
-                                            border: "1px solid #333131",
+                                            border: "3px solid #333131",
                                         }}
                                     >
                                         {item.button}
