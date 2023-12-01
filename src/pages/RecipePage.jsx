@@ -55,7 +55,7 @@ export default function RecipePage() {
             <p className="text-6xl font-bold align-middle my-auto">
               {recipePage.title}
             </p>
-            <p className="text-xl align-middle my-auto">{recipePage.text}</p>
+            <p className="text-xl align-middle my-auto pb-1">{recipePage.text}</p>
             <div>
               <ChipMap array={chipData} />
             </div>
@@ -98,9 +98,11 @@ export default function RecipePage() {
           </div>
         </div>
         <hr className="" />
-        <div className="w-full bg-dots bg-button py-20">
-          <div className="w-10/12 mx-auto bg-red-100 border-2 border-black shadow-hard p-4">
+        <div className="w-full bg-dots bg-button-blue py-20">
+          <div className="w-10/12 mx-auto bg-card border-2 border-black shadow-hard p-0">
+            <div className="w-full bg-stone-500/20 p-4">
             <CommentsSection page={recipePage} />
+            </div>
           </div>
         </div>
       </div>
