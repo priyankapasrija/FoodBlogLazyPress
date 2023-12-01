@@ -5,6 +5,8 @@ import RefinementList from './RefinementList';
 import {useState,useEffect} from 'react';
 import SkeletonForCard from './SkeletonForCard';
 
+
+
 function CustomHitComponent ({ hit }) { 
   const [isLoading,setIsLoading] = useState(true);
   
@@ -45,14 +47,16 @@ const CardSection = () => {
   <>
   <div className='polka-dot'>
   <InstantSearch searchClient={searchClient} indexName="recipes">
-    <div className='mt-5 flex justify-center'>
+    <div className='mt-5 mb-3 flex justify-center'>
     <SearchBox 
-    placeholder={'Search for recipes'}
-    classNames={{
-      
-      input:'border border-black pl-2 placeholder:text-slate-300',
-      submit:' border border-black p-[0.45rem] bg-white '}}
-      />
+    
+  placeholder={' 🔍 Search for recipes'}
+  classNames={{
+    input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans w-[20vw]',
+    submit:'hidden'
+    
+  }}
+/>
     </div>
     <CurrentRefinements
       includedAttributes={['region', 'category']}
@@ -74,7 +78,7 @@ const CardSection = () => {
       <div className="flex flex-row flex-wrap">
             <Hits classNames={{
               list:'flex flex-row flex-wrap justify-center items-center ml-3',
-              item:'w-[20vw] h-[50vh]'
+              item:'w-[25vw] h-[65vh]'
             }}
              hitComponent={CustomHitComponent} />
           </div>

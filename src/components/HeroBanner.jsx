@@ -49,7 +49,7 @@ const HeroBanner = () => {
                                         height:'50vh',
                                         marginLeft: "45vw",
                                         marginTop:'25vh',
-                                        border: "4px solid black",
+                                        border: "1px solid black",
                                     }}
                                 />
                                 <div
@@ -88,7 +88,7 @@ const HeroBanner = () => {
                                             fontFamily:'Montserrat',
                                             backgroundColor: "#f0ff00",
                                             borderRadius: "0px",
-                                            border: "3px solid #333131",
+                                            border: "1px solid #333131",
                                         }}
                                     >
                                         {item.button}

@@ -5,6 +5,7 @@ import CardSection from "../components/CardSection";
 import Spinner from '../components/Spinner';
 import { useFoodBlog } from "../lib/swr";
 import {useEffect} from 'react';
+import RecipeQuote from "../components/RecipeQuote";
 
 export default function Home(/*{data}*/) {
     // const { hero, blogPages } = data;
@@ -21,8 +22,9 @@ export default function Home(/*{data}*/) {
              <Spinner />
              </div>)
          :  ( <div>
-              <HeroBanner /*hero={hero}*/ />
-            <CardSection /*blogPages={blogPages}*/ />
+              <HeroBanner />
+              <RecipeQuote/>
+            <CardSection />
              </div>)}
         </>
     );
