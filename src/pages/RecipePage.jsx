@@ -1,9 +1,16 @@
 import { useRecipePage } from "../lib/swr";
 import { Parallax } from "react-scroll-parallax";
 import { useParams, Link } from "react-router-dom";
-import { Breadcrumbs, BreadcrumbItem, Spinner } from "@nextui-org/react";
+import {
+  Breadcrumbs,
+  BreadcrumbItem,
+  Spinner,
+  CheckboxGroup,
+  Checkbox,
+} from "@nextui-org/react";
 import CommentsSection from "../components/CommentsSection";
 import ChipMap from "../components/ChipMap";
+import { useState } from "react";
 // import { useEffect, useState } from "react";
 // import { getSinglePageContent } from "../lib/dbBlog";
 // import Comments from "../components/Comments";
@@ -14,6 +21,7 @@ export default function RecipePage() {
   const { pageId } = useParams();
   // const [theData, setTheData] = useState(null);
   const { recipePage, isLoading } = useRecipePage(pageId);
+  const [selected, setSelected] = useState([]);
   document.title = `Food Blog`;
 
   if (!recipePage) {
@@ -24,9 +32,10 @@ export default function RecipePage() {
   if (!isLoading) document.title = `${recipePage.title} | Food Blog`;
   const chipData = [`${recipePage.category}`, `${recipePage.region}`];
   // console.log(`🍟\n`, chipData);
+  console.log(selected);
 
   return (
-    <div className="">
+    <>
       <Breadcrumbs className="py-2" style={{ borderBottom: "1px solid black" }}>
         <BreadcrumbItem className="ml-[50px]" style={{ fontSize: "1rem" }}>
           <Link style={{ textDecoration: "none" }} to="/" relative="path">
@@ -55,24 +64,43 @@ export default function RecipePage() {
             <p className="text-6xl font-bold align-middle my-auto">
               {recipePage.title}
             </p>
-            <p className="text-xl align-middle my-auto pb-1">{recipePage.text}</p>
+            <p className="text-xl align-middle my-auto pb-1">
+              {recipePage.text}
+            </p>
             <div>
               <ChipMap array={chipData} />
             </div>
           </div>
         </Parallax>
       </div>
-      <div className="bg-offwhite bg-fixed w-full font-montserrat font-normal text-lg">
-        <div className="flex justify-between ml-4 mr-20">
+      <div className="bg-offwhite bg-full w-full font-montserrat font-normal text-lg">
+        <div className="flex justify-between mx-auto mb-12 w-10/12">
           <div className="w-2/6 min-h-screen">
-            <div className="p-5 w-full sticky top-20 pr-12">
+            <div className="p-5 pl-0 w-full sticky top-20 pr-12">
               <h1 className="h1 text-5xl mb-2">Ingredients</h1>
-              <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-6">
+              {/* <CheckboxGroup onValueChange={setSelected}>
+                <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-4">
+                  {recipePage?.ingList.map((ingObj) => {
+                    return (
+                      <Checkbox
+                        value={ingObj.ing}
+                        className={"flex justify-between mb-1" + (selected ? 'line-through' : '')}
+                        key={ingObj.ing + crypto.randomUUID()}
+                      >
+                        <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
+                      </Checkbox>
+                    );
+                  })}
+                </ul>
+              </CheckboxGroup> */}
+
+              <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-4">
                 {recipePage?.ingList.map((ingObj) => {
                   return (
                     <li
                       key={crypto.randomUUID()}
                       className="flex justify-between mb-1"
+                      id={crypto.randomUUID()}
                     >
                       <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
                     </li>
@@ -86,27 +114,26 @@ export default function RecipePage() {
             {recipePage?.steps.map((step, i) => {
               return (
                 <div key={crypto.randomUUID()}>
-                  <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4 mb-1">
-                    Step {i + 1}
-                  </h3>
-                  <p className="font-normal first-letter:font-semibold first-letter:text-xl">
-                    {step}
+                  <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4 mb-1"></h3>
+                  <p className="font-semibold first-letter:font-bold text-base first-letter:text-2xl">
+                    <b>{i + 1}.</b> {step}
                   </p>
                 </div>
               );
             })}
           </div>
         </div>
-        <hr className="" />
+
+        <hr />
         <div className="w-full bg-dots bg-button-blue py-20">
           <div className="w-10/12 mx-auto bg-card border-2 border-black shadow-hard p-0">
             <div className="w-full bg-stone-500/20 p-4">
-            <CommentsSection page={recipePage} />
+              <CommentsSection page={recipePage} />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
