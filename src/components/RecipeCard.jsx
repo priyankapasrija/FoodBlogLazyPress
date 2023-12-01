@@ -15,20 +15,21 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
   };
 
   return (
-    <Card className="border rounded-none boxShadow mx-5 bg-[#ffffb7]" style={{ borderColor: '#333131' }}>
+    <Card className="border rounded-none boxShadow mx-5 bg-[#FF8F60]" style={{ borderColor: 'black' }}>
       <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'15vh'}}>
         <h4 
-          style={{fontFamily:'Unisans-Heavy',lineHeight:'1rem'}}>
+          className="uppercase"
+          style={{fontFamily:'Montserrat',lineHeight:'1.2rem',fontSize:'1.5rem'}}>
           {title}
         </h4>
         <div className="flex flex-col items-start"
             >
-          <p className="text-tiny flex mb-1 items-center"
-              style={{fontWeight:'900'}}>
+          <p className="text-tiny flex mt-1 mb-1 font-bold items-center"
+              style={{fontFamily:'Baryton'}}>
               <PiForkKnifeFill />
               &nbsp;{region}{" "}Cuisine</p>
-              <p className={`text-tiny text-white border border-black p-[0.5] px-2 ${ctgryColor(category)}`}
-              style={{fontFamily:'UniSans-Heavy',fontSize:'0.5rem'}}>
+              <p className={`text-tiny text-black uppercase font-bold border border-black p-[0.5] px-2 ${ctgryColor(category)}`}
+              style={{fontFamily:'Montserrat',fontSize:'0.5rem'}}>
               {category}</p>
         </div>
       </CardHeader>
@@ -47,10 +48,11 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
         <div className="items-end flex flex-col"> 
          <Button
         onClick={handleClick}
-        className="button buttonShadow rounded-none mt-[2vh] "
+        className="button buttonShadow rounded-none mt-[2vh] uppercase "
         style={{
           border: "1px solid black",
-          backgroundColor: "#DAEAF1",
+          backgroundColor: "#e4f201",
+          fontFamily:'Montserrat'
         }}
       >
         {button}

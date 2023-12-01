@@ -13,6 +13,8 @@ export default function CMSRefinementList(props) {
         toggleShowMore,
     } = useRefinementList(props);
 
+
+ 
     return (
         <>
             {/* <Input
@@ -24,20 +26,21 @@ export default function CMSRefinementList(props) {
         maxLength={512}
         onChange={(event) => searchForItems(event.currentTarget.value)}
       /> */}
-            <ul >
+            <ul style={{width:'12vw'}} >
                 {items.map((item) => (
-                    <li key={item.label}>
+                    <li key={item.label} className="mx-1">
                         <label className='items-center flex mb-1'>
                             <Checkbox
                                 isSelected={item.isRefined}
                                 radius='none'
                                 onValueChange={() => refine(item.value)}
                                 color='default'
+                                
                             />
                            <span className='border border-[#333131] text-[0.5rem] bg-[#333131] text-white p-1'
                            >{item.count}
                            </span>
-                            <span className="text-[0.6rem]">
+                            <span className="text-[0.8rem]" style={{fontFamily:'Baryton'}}>
                             &nbsp;  {item.label} 
                             </span>
                         </label>
@@ -45,8 +48,8 @@ export default function CMSRefinementList(props) {
                 ))}
             </ul>
             <Button
-                className="border border-black bg-[#DAEAF1] rounded-none text-black text-[0.8rem] buttonShadow mb-2"
-                style={{width:'6vw'}}
+                className="mt-1 border border-black bg-[#DAEAF1] uppercase rounded-none text-black text-[0.8rem] buttonShadow mb-2"
+                style={{width:'7vw', fontFamily:'Montserrat'}}
                 onPress={toggleShowMore}
                 disabled={!canToggleShowMore}
                
