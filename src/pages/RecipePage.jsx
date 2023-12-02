@@ -11,6 +11,8 @@ import {
 import CommentsSection from "../components/CommentsSection";
 import ChipMap from "../components/ChipMap";
 import { useState } from "react";
+import YouTube from "react-youtube";
+import getYouTubeID from "get-youtube-id";
 // import { useEffect, useState } from "react";
 // import { getSinglePageContent } from "../lib/dbBlog";
 // import Comments from "../components/Comments";
@@ -22,6 +24,7 @@ export default function RecipePage() {
   // const [theData, setTheData] = useState(null);
   const { recipePage, isLoading } = useRecipePage(pageId);
   const [selected, setSelected] = useState([]);
+  const youTubeID = getYouTubeID(`${recipePage?.videoUrl}`);
   document.title = `Food Blog`;
 
   if (!recipePage) {
@@ -32,7 +35,7 @@ export default function RecipePage() {
   if (!isLoading) document.title = `${recipePage.title} | Food Blog`;
   const chipData = [`${recipePage.category}`, `${recipePage.region}`];
   // console.log(`🍟\n`, chipData);
-  console.log(selected);
+  // console.log(selected);
 
   return (
     <>
@@ -64,7 +67,7 @@ export default function RecipePage() {
             <p className="text-6xl font-bold align-middle my-auto">
               {recipePage.title}
             </p>
-            <p className="text-xl align-middle my-auto pb-1">
+            <p className="text-2xl align-middle my-auto py-2">
               {recipePage.text}
             </p>
             <div>
@@ -76,37 +79,48 @@ export default function RecipePage() {
       <div className="bg-offwhite bg-full w-full font-montserrat font-normal text-lg">
         <div className="flex justify-between mx-auto mb-12 w-10/12">
           <div className="w-2/6 min-h-screen">
-            <div className="p-5 pl-0 w-full sticky top-20 pr-12">
+            <div className="p-5 pl-0 w-full sticky top-20 pr-11">
               <h1 className="h1 text-5xl mb-2">Ingredients</h1>
-              {/* <CheckboxGroup onValueChange={setSelected}>
-                <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-4">
+              {/* <p className="text-default-500 text-small">
+                Selected: {selected.join(", ")}
+              </p> */}
+              <CheckboxGroup onValueChange={setSelected}>
+                <ul className="border-2 border-black p-4 shadow-hard w-full bg-card-yellow mb-4">
                   {recipePage?.ingList.map((ingObj) => {
+                    // console.log(`${ingObj.ing}\n` ,selected.includes(ingObj.ing));
                     return (
-                      <Checkbox
-                        value={ingObj.ing}
-                        className={"flex justify-between mb-1" + (selected ? 'line-through' : '')}
-                        key={ingObj.ing + crypto.randomUUID()}
+                      <div
+                        className="flex justify-between"
+                        key={crypto.randomUUID()}
                       >
-                        <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
-                      </Checkbox>
+                        <Checkbox
+                          value={ingObj.ing + ingObj.amount}
+                          radius="none"
+                          color="default"
+                          className={
+                            "mb-1 line-through" +
+                            (selected.includes(ingObj.ing + ingObj.amount)
+                              ? ""
+                              : "line-through")
+                          }
+                          key={ingObj.ing + crypto.randomUUID()}
+                        >
+                          <p className="font-bold">{`${ingObj.ing}`}</p>
+                        </Checkbox>
+                        <p
+                          className={
+                            "mb-1 line-through" +
+                            (selected.includes(ingObj.ing + ingObj.amount)
+                              ? ""
+                              : "line-through")
+                          }
+                        >{`${ingObj.amount}`}</p>
+                      </div>
                     );
                   })}
                 </ul>
-              </CheckboxGroup> */}
+              </CheckboxGroup>
 
-              <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-4">
-                {recipePage?.ingList.map((ingObj) => {
-                  return (
-                    <li
-                      key={crypto.randomUUID()}
-                      className="flex justify-between mb-1"
-                      id={crypto.randomUUID()}
-                    >
-                      <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
-                    </li>
-                  );
-                })}
-              </ul>
             </div>
           </div>
           <div className="p-5 w-8/12 pl-12">
@@ -114,20 +128,28 @@ export default function RecipePage() {
             {recipePage?.steps.map((step, i) => {
               return (
                 <div key={crypto.randomUUID()}>
-                  <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4 mb-1"></h3>
+                  <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4"></h3>
                   <p className="font-semibold first-letter:font-bold text-base first-letter:text-2xl">
                     <b>{i + 1}.</b> {step}
                   </p>
                 </div>
               );
             })}
+            {recipePage.videoUrl && (
+              <>
+                <h1 className="h1 text-5xl mb-6 mt-4">Video</h1>
+                <div className=" shadow-hard w-fit h-fit border-2 border-black mb-4">
+                  <YouTube videoId={youTubeID} className="" />
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         <hr />
-        <div className="w-full bg-dots bg-button-blue py-20">
+        <div className="w-full bg-dots bg-blueberry/50 py-20 border-b-2 border-b-black bg-fixed">
           <div className="w-10/12 mx-auto bg-card border-2 border-black shadow-hard p-0">
-            <div className="w-full bg-stone-500/20 p-4">
+            <div className="w-full bg-stone-100/30 p-6">
               <CommentsSection page={recipePage} />
             </div>
           </div>
@@ -136,6 +158,22 @@ export default function RecipePage() {
     </>
   );
 }
+
+/* <ul className="border-2 border-black p-4 shadow-hard w-full bg-card mb-4">
+  {recipePage?.ingList.map((ingObj) => {
+    return (
+      <li
+        key={crypto.randomUUID()}
+        className="flex justify-between mb-1"
+        id={crypto.randomUUID()}
+      >
+        <b>{`${ingObj.ing}`}</b> {`${ingObj.amount}`}
+      </li>
+    );
+  })}
+</ul> */
+//* Original ingredient list code piece
+
 
 // useEffect(() => {
 //     const fetchData = async () => {
