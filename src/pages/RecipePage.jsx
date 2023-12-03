@@ -86,13 +86,13 @@ export default function RecipePage() {
               </p> */}
               <CheckboxGroup onValueChange={setSelected}>
                 <ul className="border-2 border-black p-4 shadow-hard w-full bg-card-yellow mb-4">
-                  {recipePage?.ingList.map((ingObj) => {
+                  {recipePage?.ingList.map((ingObj) => { //TODO MAKE RIGHT SIDE ELEMENTS STICKY, TOO
                     // console.log(`${ingObj.ing}\n` ,selected.includes(ingObj.ing));
                     return (
                       <div
                         className="flex justify-between"
                         key={crypto.randomUUID()}
-                      >
+                      > 
                         <Checkbox
                           value={ingObj.ing + ingObj.amount}
                           radius="none"
@@ -124,7 +124,7 @@ export default function RecipePage() {
             </div>
           </div>
           <div className="p-5 w-8/12 pl-12">
-            <h1 className="h1 text-5xl mb-2">Directions</h1>
+            <h1 className="h1 text-5xl">Directions</h1>
             {recipePage?.steps.map((step, i) => {
               return (
                 <div key={crypto.randomUUID()}>
@@ -136,12 +136,12 @@ export default function RecipePage() {
               );
             })}
             {recipePage.videoUrl && (
-              <>
-                <h1 className="h1 text-5xl mb-6 mt-4">Video</h1>
+              <div className="sticky top-[111px] mb-4 h-fit">
+                <h1 className="h1 text-5xl mb-2 mt-4">Video</h1>
                 <div className=" shadow-hard w-fit h-fit border-2 border-black mb-4">
                   <YouTube videoId={youTubeID} className="" />
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
