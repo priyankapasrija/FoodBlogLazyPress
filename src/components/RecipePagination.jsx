@@ -19,7 +19,8 @@ export default function RecipePagination({ nbPages }) {
   return (
     <Pagination
       color="secondary"
-      size="lg"
+      size="md"
+      width='100vw'
       total={nbPages}
       page={localCurrentPage}
       className="flex justify-center mt-1 mx-0"

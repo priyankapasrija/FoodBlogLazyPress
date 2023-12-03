@@ -49,6 +49,7 @@ html {
   font-family: "chapman", sans-serif;
   font-weight: 400;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 h1,
@@ -175,16 +176,17 @@ hr:after {
 /* Recipe Quote responsiveness */
 .recipe-quote {
   font-family: "Baryton";
-  font-size: 6rem;
+  font-size: 5rem;
   line-height: 1;
   width: 80vw;
   height: 60vh;
 }
 
+
 /* Responsive Font Sizes for Recipe Quote*/
 @media (max-width: 1024px) {
   .recipe-quote {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 
@@ -203,7 +205,7 @@ hr:after {
 /* Responsive Font Sizes for Hero Banner,navbar*/
 .hero-banner-title {
   font-family: "Baryton";
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 1;
   margin-top: -55vh;
   max-width: 50vw;
@@ -216,6 +218,10 @@ hr:after {
 .card-image {
   width: 25vw;
   height: 25vh;
+ }
+
+.recipe-quote {
+  font-size: 2rem,
 }
 
 @media (max-width: 1024px) {
