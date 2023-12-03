@@ -22,7 +22,7 @@ export default function NavBar() {
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
       <NavbarContent className="sm:hidden"  >
-        <NavbarBrand> 
+        <NavbarBrand  > 
           <span >NOODLE AND NOODLE</span>
         </NavbarBrand>
       </NavbarContent>
@@ -47,7 +47,7 @@ export default function NavBar() {
                 fontWeight: index === 0 ? "600" : "normal",
                 display: "flex",
                 alignItems: "center",
-                fontSize:'0.8rem',
+                fontSize:'0.6rem',
                
               }}
             >
