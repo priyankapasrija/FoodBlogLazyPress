@@ -6,19 +6,15 @@ import { useFoodBlog } from "../lib/swr";
 
 const HeroBanner = () => {
     const { isLoading,foodBlog } = useFoodBlog();
-    // !isLoading && console.log(foodBlog.pages.home.hero);
+   
     
-
- 
-
-
-   if (isLoading) return <div>Loading</div>
+   if (isLoading) return null
     return (
         <ScrollContainer>
             <ScrollPage
                 style={{
                     height: "100vh",
-                    marginTop: "-8vh",
+                    marginTop: "-4rem",
                     border: "1px solid black",
                     
                 }}
@@ -43,7 +39,7 @@ const HeroBanner = () => {
                                     alt="carousel banner"
                                     src={item.imgUrl}
                                     draggable="false"
-                                    className="object-cover h-[100vh] boxShadow"
+                                    className=" object-cover h-[100vh] boxShadow"
                                     style={{
                                         width: "40vw",
                                         height:'50vh',
@@ -57,19 +53,12 @@ const HeroBanner = () => {
                                     style={{
                                     }}
                                 >
-                                    <h1
-                                        className="text-black mb-2"
-                                        style={{
-                                            fontFamily: "Baryton",
-                                            fontSize: "7rem",
-                                            lineHeight:1,
-                                            marginTop:'-55vh',
-                                            maxWidth:'50vw'
-                                            
-                                        }}
-                                    >
-                                        {item.title}
-                                    </h1>
+                                  <h1
+                                   className="hero-banner-title text-black mb-2"
+                                   
+                                 >
+                                    {item.title}
+                                  </h1>
                                     <p
                                         className="text-black"
                                         style={{
