@@ -1,6 +1,5 @@
 /*Latest Fonts*/
-@import url('https://use.typekit.net/qsi3xvz.css');
-
+@import url("https://use.typekit.net/qsi3xvz.css");
 
 @font-face {
   font-family: "Montserrat";
@@ -32,14 +31,10 @@
   src: url("../styles/assets/typography/Agina.otf");
 }
 
-
-
-  @font-face {
-    font-family: "Baryton";
-    src: url("../styles/assets/typography/Baryton-Regular.woff2");
-  }
-
-  
+@font-face {
+  font-family: "Baryton";
+  src: url("../styles/assets/typography/Baryton-Regular.woff2");
+}
 
 @tailwind base;
 @tailwind components;
@@ -53,8 +48,8 @@ body,
 html {
   font-family: "chapman", sans-serif;
   font-weight: 400;
-  font-size: 18px,
- }
+  font-size: 18px;
+}
 
 h1,
 h2,
@@ -65,6 +60,7 @@ h6 {
   font-family: "Unisans-Heavy", sans-serif;
   font-size: 24px;
   font-weight: bold;
+  user-select: none;
 }
 
 .vl {
@@ -113,6 +109,14 @@ hr:after {
   background-image: url("https://roundandround.sydney/build/assets/bg-dots-e39aed69.png");
 }
 
+.bg-dots-1 {
+  background-image: url("../styles/assets/images/bg-dots-e39aed70.png");
+  /* background-attachment: revert; */
+  background-position: bottom;
+  /* position: sticky; */
+  z-index: 101;
+}
+
 .line-through {
   text-decoration: line-through !important;
 }
@@ -121,7 +125,8 @@ hr:after {
   position: relative;
 }
 .borderr:after {
-  background: linear-gradient(-45deg, #333131 10px, transparent 0), linear-gradient(45deg, #333131 10px, transparent 0);
+  background: linear-gradient(-45deg, #333131 10px, transparent 0),
+    linear-gradient(45deg, #333131 10px, transparent 0);
   background-position: left bottom;
   background-repeat: repeat-x;
   background-size: 12px 32px;

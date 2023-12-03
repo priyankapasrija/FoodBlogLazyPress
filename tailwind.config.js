@@ -36,6 +36,13 @@ const config = {
       backgroundImage: {
         dots: "https://roundandround.sydney/build/assets/bg-dots-e39aed69.png",
       },
+      zIndex: {
+        60: "60",
+        70: "70",
+        80: "80",
+        90: "90",
+        100: "100",
+      },
     },
   },
   darkMode: "class",
