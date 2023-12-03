@@ -40,7 +40,7 @@ export default function CMSRefinementList(props) {
                            <span className='border border-[#333131] text-[0.5rem] bg-[#333131] text-white p-1'
                            >{item.count}
                            </span>
-                            <span className="text-[0.8rem]" style={{fontFamily:'Baryton'}}>
+                            <span className="text-[0.7rem]" style={{fontFamily:'Baryton'}}>
                             &nbsp;  {item.label} 
                             </span>
                         </label>
@@ -48,8 +48,8 @@ export default function CMSRefinementList(props) {
                 ))}
             </ul>
             <Button
-                className="mt-1 border border-black bg-[#DAEAF1] uppercase rounded-none text-black text-[0.8rem] buttonShadow mb-2"
-                style={{width:'7vw', fontFamily:'Montserrat'}}
+                className="mt-1 border border-black bg-[#DAEAF1] uppercase rounded-none text-black text-[0.8rem] buttonShadow mb-2 ml-1"
+                style={{width:'8vw', fontFamily:'Montserrat'}}
                 onPress={toggleShowMore}
                 disabled={!canToggleShowMore}
                

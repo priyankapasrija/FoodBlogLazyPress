@@ -41,7 +41,7 @@ const CardSection = () => {
             <SearchBox
               placeholder={' 🔍 Search for recipes'}
               classNames={{
-                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans w-lg-[20vw] w-md-[40vw] sm:hidden md:hidden lg:flex',
+                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans text-sm ml-10 w-60 xs:hidden sm:hidden md:hidden lg:flex',
                 submit: 'hidden',
               }}
             />
@@ -50,18 +50,18 @@ const CardSection = () => {
             includedAttributes={['region', 'category']}
             classNames={{
               root: 'mt-2 mb-2 hidden flex-row items-center sm:none md:none lg:flex',
-              item: 'text-black text-[0.7rem]',
+              item: 'text-black text-[0.5rem]',
             }}
           />
 
           <div className='flex flex-col md:flex-row justify-start' style={{ width: '95vw' }}>
          
             <div className='hidden sm:none md:none lg:flex lg:flex-col md:w-1/5 ml-8 px-1 bg-white border-1 border-black'>
-              <h4 className='m-1' style={{ fontFamily: 'Montserrat', fontSize: '0.8rem' }}>
+              <h4 className='m-1' style={{ fontFamily: 'Montserrat', fontSize: '0.7rem' }}>
                 Region:
               </h4>
               <RefinementList showMore={true} attribute='region' />
-              <h4 className='m-1' style={{ fontFamily: 'Montserrat', fontSize: '0.8rem' }}>
+              <h4 className='m-1' style={{ fontFamily: 'Montserrat', fontSize: '0.7rem' }}>
                 Category:
               </h4>
               <RefinementList showMore={true} attribute='category' 
@@ -72,7 +72,7 @@ const CardSection = () => {
             <div className='flex flex-row flex-wrap'>
               <Hits
                 classNames={{
-                  list: 'flex flex-row flex-wrap justify-center items-center ml-3 ',
+                  list: 'flex flex-row flex-wrap justify-center items-center ml-10 ',
                   item: 'w-full sm:w-1 md:w-1/2 lg:w-1/3 mb-6', 
                 }}
                 hitComponent={CustomHitComponent}
@@ -85,7 +85,7 @@ const CardSection = () => {
             totalPages={25}
             classNames={{
               selectedItem: 'border bg-black text-white',
-              list: 'flex justify-center items-center mb-2 mt-2',
+              list: 'flex justify-center items-center mb-2 mt-2 w-full',
               item: 'border p-2 m-1',
             }}
           />

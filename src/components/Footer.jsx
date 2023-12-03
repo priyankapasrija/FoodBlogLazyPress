@@ -1,7 +1,7 @@
 import { FaRegCopyright } from "react-icons/fa";
 import { useFoodBlog } from "../lib/swr";
 
-export default function Footer(/*{footer}*/) {
+export default function Footer() {
     const { foodBlog, isLoading } = useFoodBlog();
 
     if (!foodBlog) {
@@ -9,8 +9,8 @@ export default function Footer(/*{footer}*/) {
 
     if (isLoading) return <div>Loading...</div>;
     return (
-        <div className="text-white p-6" style={{ backgroundColor: "#333131" }}>
-            <div className="flex gap-12 justify-evenly">
+        <div className="text-white p-6 " style={{ backgroundColor: "#333131" }}>
+            <div className="flex gap-12 justify-evenly flex-wrap">
                 <div>
                     <h4 className="font-bold hover:text-pink-lavender">
                         PRODUCTS
