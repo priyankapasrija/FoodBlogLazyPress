@@ -28,7 +28,6 @@ const UserConsent = () => {
 
   return !cookies ? (
     <div className="sticky bottom-0 w-full flex justify-center z-100 select-none">
-      {console.log(`Cookies\n`, cookies)}
       <div className="flex justify-between absolute bottom-6 px-6 py-2 shadow-hard border-black border-4 bg-card-yellow bg-dots-1 w-11/12">
         <div>
           <p className="text-2xl font-bold font-unisans-heavy">
@@ -53,7 +52,6 @@ const UserConsent = () => {
   ) : (
     <>
       {/* <div className="bg-card px-2 py-2 sticky bottom-0 z-100">
-        {console.log(`Cookies\n`, cookies)}
         <Button onClick={handleUndo}>Return the message!</Button>
       </div> */}
     </>

@@ -61,7 +61,6 @@ h6 {
   font-family: "Unisans-Heavy", sans-serif;
   font-size: 24px;
   font-weight: bold;
-  user-select: none;
 }
 
 .vl {
@@ -106,6 +105,39 @@ hr:after {
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75) !important;
 }
 
+/* Scrollbar styling */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: #3c3c3c #f1f1f1
+}
+
+/* Chromium + Safari */
+*::-webkit-scrollbar {
+	width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+	/* background-image: url("../styles/assets/images/bg-dots-e39aed70.png"); */
+	background-color: #daeaf1;
+	border-radius: 0px;
+	border: 1px solid #000000;
+	box-shadow: 4px 4px 0px 0px #333131;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #717FF7;
+}
+
+*::-webkit-scrollbar-thumb:active {
+	background-color: #333131;
+}
+/* End of scrollbar styling */
+
 .bg-dots {
   background-image: url("https://roundandround.sydney/build/assets/bg-dots-e39aed69.png");
 }
@@ -116,6 +148,29 @@ hr:after {
   background-position: bottom;
   /* position: sticky; */
   z-index: 101;
+}
+
+.line-through {
+  text-decoration: line-through !important;
+}
+
+/* Zig zag border */
+.borderr {
+  position: relative;
+}
+.borderr:after {
+  background: linear-gradient(-45deg, #ffffff 10px, transparent 0),
+    linear-gradient(45deg, #ffffff 10px, transparent 0);
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  background-size: 12px 32px;
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: -60px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
 }
 
 /* Recipe Quote responsiveness */
@@ -157,8 +212,8 @@ hr:after {
 }
 
 .navbar-content {
-  margin-left:30vw;
- }
+  margin-left: 30vw;
+}
 
 .card-image {
   width: 25vw;
@@ -174,16 +229,14 @@ hr:after {
     font-size: 6rem;
   }
 
-.navbar-content {
-  margin-left: -10vw;
-}
+  .navbar-content {
+    margin-left: -10vw;
+  }
 
-.card-image {
-  width: 60vw;
-  height: 25vh;
- }
-
-
+  .card-image {
+    width: 60vw;
+    height: 25vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -191,10 +244,10 @@ hr:after {
     font-size: 6rem;
   }
 
-.card-image {
-  width: 60vw;
-  height: 25vh;
- }
+  .card-image {
+    width: 60vw;
+    height: 25vh;
+  }
 }
 
 @media (max-width: 480px) {
@@ -202,30 +255,8 @@ hr:after {
     font-size: 3rem;
   }
 
-.card-image {
-  width: 80vw;
-  height: 25vh;
- }
+  .card-image {
+    width: 80vw;
+    height: 25vh;
   }
-
-.line-through {
-  text-decoration: line-through !important;
-}
-
-.borderr {
-  position: relative;
-}
-.borderr:after {
-  background: linear-gradient(-45deg, #333131 10px, transparent 0),
-    linear-gradient(45deg, #333131 10px, transparent 0);
-  background-position: left bottom;
-  background-repeat: repeat-x;
-  background-size: 12px 32px;
-  content: " ";
-  display: block;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  width: 100%;
-  height: 25px;
 }
