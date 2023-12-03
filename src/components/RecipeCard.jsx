@@ -15,7 +15,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
   };
 
   return (
-    <Card className="border rounded-none boxShadow mx-5 bg-[#FF8F60]" style={{ borderColor: 'black' }}>
+    <Card className="border rounded-none boxShadow mx-3 bg-[#FF8F60]" style={{ borderColor: 'black' }}>
       <CardHeader className="flex-col flex-wrap items-start justify-center" style={{height:'20vh'}}>
         <h4 
           className="uppercase"
@@ -37,12 +37,10 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
       style={{marginTop:'-3vh'}}>
         <Image
           alt="Food Image"
-          className="object-cover rounded-none mb-2"
+          className="object-cover rounded-none mb-2 card-image"
           src={imgUrl}
           style={{
             border: "1px solid #333131",
-            width: "25vw",
-            height: "25vh",
           }}
         />
         <div className="items-end flex flex-col"> 

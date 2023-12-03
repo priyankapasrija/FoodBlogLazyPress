@@ -117,6 +117,93 @@ hr:after {
   z-index: 101;
 }
 
+/* Recipe Quote responsiveness */
+.recipe-quote {
+  font-family: "Baryton";
+  font-size: 6rem;
+  line-height: 1;
+  width: 80vw;
+  height: 60vh;
+}
+
+/* Responsive Font Sizes for Recipe Quote*/
+@media (max-width: 1024px) {
+  .recipe-quote {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipe-quote {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipe-quote {
+    font-size: 2rem;
+  }
+}
+
+/* Responsive Font Sizes for Hero Banner,navbar*/
+.hero-banner-title {
+  font-family: "Baryton";
+  font-size: 8rem;
+  line-height: 1;
+  margin-top: -55vh;
+  max-width: 50vw;
+}
+
+.navbar-content {
+  margin-left:30vw;
+ }
+
+.card-image {
+  width: 25vw;
+  height: 25vh;
+ }
+
+ 
+
+@media (max-width: 1024px) {
+  .hero-banner-title {
+    font-size: 6rem;
+  }
+
+.navbar-content {
+  margin-left: -10vw;
+}
+
+.card-image {
+  width: 60vw;
+  height: 25vh;
+ }
+
+
+}
+
+@media (max-width: 768px) {
+  .hero-banner-title {
+    font-size: 6rem;
+  }
+
+.card-image {
+  width: 60vw;
+  height: 25vh;
+ }
+}
+
+@media (max-width: 480px) {
+  .hero-banner-title {
+    font-size: 3rem;
+  }
+
+.card-image {
+  width: 80vw;
+  height: 25vh;
+ }
+  }
+
 .line-through {
   text-decoration: line-through !important;
 }
