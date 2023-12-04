@@ -1,10 +1,12 @@
-import {useState} from 'react';
 import { Navbar, NavbarContent, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
+import {useState} from 'react';
 
 export default function NavBar() {
   const { foodBlog, isLoading } = useFoodBlog();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selected, setSelected] = useState(0);
+  
 
   if (isLoading) return null;
 
@@ -13,12 +15,14 @@ export default function NavBar() {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-white flex items-center "
+      className="bg-white flex items-center h-[3rem]"
       style={{
         borderBottom: "1px solid #333131",
       }}
     >
-      <NavbarContent className="sm:hidden" justify="start" >
+      <NavbarContent className="sm:hidden" justify="center
+
+      " >
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
       <NavbarContent className="sm:hidden"  >
@@ -27,28 +31,32 @@ export default function NavBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4  w-full">
+      <NavbarContent className="hidden sm:flex gap-4 ">
         <div >
           <NavbarBrand>
+            <Link href='/' className='text-black xl:ml-[-14vw] lg:ml-[0]'>
             <span >NOODLE AND NOODLE</span>
+            </Link>
           </NavbarBrand>
         </div>
       
         {foodBlog.pages.home.navBar.map((item, index) => (
-          <NavbarMenuItem key={index} >
+          <NavbarMenuItem key={index}>
             <Link
-              className="text-sm uppercase items-center"
+              className={`text-sm uppercase items-center ${
+                index === selected ? "selected" : ""
+              }`}
               color="foreground"
               href={item.href}
+              onClick={() => setSelected(index)}
               style={{
                 fontFamily: "Montserrat",
                 textDecoration: "none",
                 color: "#333131",
-                fontWeight: index === 0 ? "600" : "normal",
+                fontWeight: selected === index ? '' : '',
                 display: "flex",
                 alignItems: "center",
-                fontSize:'0.6rem',
-               
+                fontSize: "0.6rem",
               }}
             >
               <span className="h-3 w-3 bg-white border border-black rounded-full mr-1 hover:bg-black"></span>
@@ -63,16 +71,16 @@ export default function NavBar() {
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
-              className="w-full text-sm uppercase"
+             className={`text-sm uppercase items-center ${index === selected ? 'selected' : ''}`}
               color="foreground"
-              href={item.href}
+              onClick={() => setSelected(index)}
               style={{
                 fontFamily: "Montserrat",
                 textDecoration: "none",
                 color: "#333131",
-                fontWeight: index === 0 ? "600" : "normal",
                 display: "flex",
                 alignItems: "center",
+                fontWeight: index === selected ? 'bold' : 'normal', 
               }}
             >
               <span className="h-3 w-3 bg-white border border-black rounded-full mr-1 hover:bg-black"></span>
