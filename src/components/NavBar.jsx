@@ -1,5 +1,13 @@
-import {useState} from 'react';
-import { Navbar, NavbarContent, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
+import { useState } from "react";
+import {
+  Navbar,
+  NavbarContent,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+  Link,
+} from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
 
 export default function NavBar() {
@@ -18,24 +26,26 @@ export default function NavBar() {
         borderBottom: "1px solid #333131",
       }}
     >
-      <NavbarContent className="sm:hidden" justify="start" >
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
       </NavbarContent>
-      <NavbarContent className="sm:hidden"  >
-        <NavbarBrand  > 
-          <span >NOODLE AND NOODLE</span>
+      <NavbarContent className="sm:hidden">
+        <NavbarBrand>
+          <span>NOODLE AND NOODLE</span>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4  w-full">
-        <div >
+        <div>
           <NavbarBrand>
-            <span >NOODLE AND NOODLE</span>
+            <span>NOODLE AND NOODLE</span>
           </NavbarBrand>
         </div>
-      
+
         {foodBlog.pages.home.navBar.map((item, index) => (
-          <NavbarMenuItem key={index} >
+          <NavbarMenuItem key={index}>
             <Link
               className="text-sm uppercase items-center"
               color="foreground"
@@ -47,8 +57,7 @@ export default function NavBar() {
                 fontWeight: index === 0 ? "600" : "normal",
                 display: "flex",
                 alignItems: "center",
-                fontSize:'0.6rem',
-               
+                fontSize: "0.6rem",
               }}
             >
               <span className="h-3 w-3 bg-white border border-black rounded-full mr-1 hover:bg-black"></span>
@@ -59,7 +68,6 @@ export default function NavBar() {
       </NavbarContent>
 
       <NavbarMenu>
-       
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
