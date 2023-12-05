@@ -89,7 +89,7 @@ export default function RecipePage() {
                 Selected: {selected.join(", ")}
               </p> */}
                 <CheckboxGroup onValueChange={setSelected}>
-                  <ul className="border-2 border-black p-4 shadow-hard w-full bg-card-yellow mb-4 select-none">
+                  <ul className="border-2 border-black px-4 py-2 shadow-hard w-full bg-card-yellow mb-4 select-none divide-y-2 divide-y-slate-200">
                     {recipePage?.ingList.map((ingObj) => {
                       // console.log(`${ingObj.ing}\n` ,selected.includes(ingObj.ing));
                       return (
@@ -102,18 +102,18 @@ export default function RecipePage() {
                             radius="none"
                             color="default"
                             className={
-                              "mb-1 line-through" +
+                              "my-[1px] line-through" +
                               (selected.includes(ingObj.ing + ingObj.amount)
                                 ? ""
                                 : "line-through")
                             }
                             key={ingObj.ing + crypto.randomUUID()}
                           >
-                            <p className="font-bold">{`${ingObj.ing}`}</p>
+                            <p className="font-bold first-letter:capitalize">{`${ingObj.ing}`}</p>
                           </Checkbox>
                           <p
                             className={
-                              "mb-1 line-through" +
+                              "mt-[8px] text-right line-through" +
                               (selected.includes(ingObj.ing + ingObj.amount)
                                 ? ""
                                 : "line-through")
@@ -128,7 +128,8 @@ export default function RecipePage() {
             </div>
             <div className="p-5 w-8/12 pl-12">
               <h1 className="h1 text-5xl select-none">Directions</h1>
-              {recipePage?.steps.map((step, i) => {
+              {recipePage?.steps.filter((steppy) => steppy.length >= 1).map((step, i) => {
+              {/* {recipePage?.steps.map((step, i) => { */}
                 return (
                   <div key={crypto.randomUUID()}>
                     <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4"></h3>

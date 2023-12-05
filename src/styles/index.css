@@ -162,6 +162,7 @@ hr:after {
   position: relative;
 }
 .borderr:after {
+  filter: drop-shadow(2px -4px 0px rgba(0, 0, 0, 0.75));
   background: linear-gradient(-45deg, #ffffff 10px, transparent 0),
     linear-gradient(45deg, #ffffff 10px, transparent 0);
   background-position: left bottom;
