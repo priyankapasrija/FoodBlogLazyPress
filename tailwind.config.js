@@ -43,6 +43,9 @@ const config = {
         90: "90",
         100: "100",
       },
+      border: {
+        debug: "solid red 4px",
+      }
     },
   },
   darkMode: "class",
