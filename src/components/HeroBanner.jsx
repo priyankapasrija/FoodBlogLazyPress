@@ -14,7 +14,7 @@ const HeroBanner = () => {
             <ScrollPage
                 style={{
                     height: "100vh",
-                    marginTop: "-4rem",
+                    marginTop: "-3rem",
                     border: "1px solid black",
                     
                 }}
@@ -50,8 +50,7 @@ const HeroBanner = () => {
                                 />
                                 <div
                                     className="absolute  z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center uppercase"
-                                    style={{
-                                    }}
+                                    
                                 >
                                   <h1
                                    className="hero-banner-title text-black mb-2"
@@ -72,7 +71,7 @@ const HeroBanner = () => {
                                         onClick={() =>
                                             console.log("CTA Clicked")
                                         }
-                                        className=" text-black buttonShadow uppercase"
+                                        className="hero-banner-button text-black buttonShadow uppercase"
                                         style={{
                                             fontFamily:'Montserrat',
                                             backgroundColor: "#f0ff00",

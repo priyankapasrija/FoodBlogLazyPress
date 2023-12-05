@@ -1,18 +1,16 @@
-import { useState } from "react";
-import {
-  Navbar,
-  NavbarContent,
-  NavbarBrand,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Link,
-} from "@nextui-org/react";
+
+import { Navbar, NavbarContent, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
+import {useState} from 'react';
+
+
 
 export default function NavBar() {
   const { foodBlog, isLoading } = useFoodBlog();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+
+  
 
   if (isLoading) return null;
 
@@ -21,15 +19,17 @@ export default function NavBar() {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-white flex items-center "
+      className="bg-white flex items-center md:h-[3rem] xs:h-[4rem]"
       style={{
         borderBottom: "1px solid #333131",
       }}
     >
-      <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        />
+
+      <NavbarContent className="sm:hidden" justify="center
+
+      " >
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+
       </NavbarContent>
       <NavbarContent className="sm:hidden">
         <NavbarBrand>
@@ -37,24 +37,30 @@ export default function NavBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4  w-full">
-        <div>
+      <NavbarContent className="hidden sm:flex gap-4 ">
+        <div >
           <NavbarBrand>
-            <span>NOODLE AND NOODLE</span>
+
+
+            <Link href='/' className='text-black xl:ml-[-14vw] lg:ml-[0]'>
+
+            <span >NOODLE AND NOODLE</span>
+            </Link>
+
           </NavbarBrand>
         </div>
 
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
-              className="text-sm uppercase items-center"
+              className={`text-sm uppercase items-center
+             `}
               color="foreground"
               href={item.href}
               style={{
                 fontFamily: "Montserrat",
                 textDecoration: "none",
                 color: "#333131",
-                fontWeight: index === 0 ? "600" : "normal",
                 display: "flex",
                 alignItems: "center",
                 fontSize: "0.6rem",
@@ -71,16 +77,15 @@ export default function NavBar() {
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
-              className="w-full text-sm uppercase"
+             className={`text-sm uppercase items-center`}
               color="foreground"
-              href={item.href}
+            
               style={{
                 fontFamily: "Montserrat",
                 textDecoration: "none",
                 color: "#333131",
-                fontWeight: index === 0 ? "600" : "normal",
                 display: "flex",
-                alignItems: "center",
+                alignItems: "center", 
               }}
             >
               <span className="h-3 w-3 bg-white border border-black rounded-full mr-1 hover:bg-black"></span>

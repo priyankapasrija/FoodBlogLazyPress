@@ -8,6 +8,7 @@ import SkeletonForCard from './SkeletonForCard';
 function CustomHitComponent({ hit }) {
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
     setIsLoading(false);
   }, [isLoading]);
@@ -35,22 +36,26 @@ function CustomHitComponent({ hit }) {
 const CardSection = () => {
   return (
     <>
-      <div className='polka-dot'>
+      <div>
         <InstantSearch searchClient={searchClient} indexName='recipes'>
-          <div className='mt-5 mb-3 flex justify-center '>
+          <div className='mt-3 mb-3  '>
             <SearchBox
-              placeholder={' 🔍 Search for recipes'}
+              placeholder={' Search for recipes'}
               classNames={{
-                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans text-sm ml-10 w-60 xs:hidden sm:hidden md:hidden lg:flex',
-                submit: 'hidden',
+                form:'hidden lg:flex lg:w-[65vw] lg:ml-[2.2vw]',
+                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans text-sm w-[13vw] xs:hidden sm:hidden md:hidden lg:flex ' ,
+                submit: 'fill-white',
+                submitIcon:'border border-black w-8 h-8 bg-black fill-white p-2', 
+                reset:'hidden'
               }}
             />
           </div>
           <CurrentRefinements
             includedAttributes={['region', 'category']}
             classNames={{
-              root: 'mt-2 mb-2 hidden flex-row items-center sm:none md:none lg:flex',
-              item: 'text-black text-[0.5rem]',
+              root: 'mb-2 hidden lg:flex-row gap-1 items-center sm:none md:none lg:flex mt-[-1vh]',
+              item: 'text-black text-[0.8rem] ml-8  gap-1',
+              category:'m-1',
             }}
           />
 
@@ -72,8 +77,8 @@ const CardSection = () => {
             <div className='flex flex-row flex-wrap'>
               <Hits
                 classNames={{
-                  list: 'flex flex-row flex-wrap justify-center items-center ml-10 ',
-                  item: 'w-full sm:w-1 md:w-1/2 lg:w-1/3 mb-6', 
+                  list: 'flex flex-row flex-wrap justify-start items-center ml-10 sm:w-[100vw] md:w-[80vw] lg:w-[w-60] ',
+                  item: 'w-[60vw]  sm:w-0 xs:1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:1/3 mb-6', 
                 }}
                 hitComponent={CustomHitComponent}
               />
@@ -82,12 +87,16 @@ const CardSection = () => {
 
        
           <Pagination
+          showFirst={false}
+          showLast={false}
             totalPages={25}
             classNames={{
               selectedItem: 'border bg-black text-white',
-              list: 'flex justify-center items-center mb-2 mt-2 w-full',
-              item: 'border p-2 m-1',
+              list: 'flex justify-center items-center mb-2 mt-2 w-[90vw] ml-[5vw]',
+              item: 'border p-1 m-1',
+              link: ''
             }}
+            
           />
         </InstantSearch>
       </div>
