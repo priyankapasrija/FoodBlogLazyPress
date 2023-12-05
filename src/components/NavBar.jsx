@@ -3,10 +3,12 @@ import { useFoodBlog } from "../lib/swr";
 import {useState} from 'react';
 
 
+
 export default function NavBar() {
   const { foodBlog, isLoading } = useFoodBlog();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
+
   
 
   if (isLoading) return null;
@@ -35,7 +37,10 @@ export default function NavBar() {
       <NavbarContent className="hidden sm:flex gap-4 ">
         <div >
           <NavbarBrand>
-            <Link href='/' className='text-black xl:ml-[-15vw] lg:ml-[0]'>
+
+
+            <Link href='/' className='text-black xl:ml-[-14vw] lg:ml-[0]'>
+
             <span >NOODLE AND NOODLE</span>
             </Link>
           </NavbarBrand>
@@ -69,8 +74,9 @@ export default function NavBar() {
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
-             className={`text-sm uppercase`}
+             className={`text-sm uppercase items-center`}
               color="foreground"
+            
               style={{
                 fontFamily: "Montserrat",
                 textDecoration: "none",
