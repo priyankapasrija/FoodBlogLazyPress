@@ -219,6 +219,7 @@ hr:after {
 }
 
 
+
 @media (max-width: 1024px) {
   .hero-banner-title {
     font-size: 5rem;
@@ -266,7 +267,9 @@ hr:after {
 
 @media (max-width: 480px) {
   .hero-banner-title {
+
     font-size: 2.5rem;
+
   }
 
   .card-image {

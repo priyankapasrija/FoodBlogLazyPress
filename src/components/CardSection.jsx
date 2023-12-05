@@ -8,8 +8,6 @@ import SkeletonForCard from './SkeletonForCard';
 function CustomHitComponent({ hit }) {
   const [isLoading, setIsLoading] = useState(true);
 
- 
-
 
   useEffect(() => {
     setIsLoading(false);
@@ -79,8 +77,8 @@ const CardSection = () => {
             <div className='flex flex-row flex-wrap'>
               <Hits
                 classNames={{
-                  list: 'flex flex-row flex-wrap lg:justify-start md:justify-center md:ml-20 items-center lg:ml-10 sm:w-[100vw] md:w-[80vw] lg:w-[w-60] ',
-                  item: 'md:w-[60vw] sm:w-[100vw]  sm:w-0 xs:1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:1/3 mb-6', 
+                  list: 'flex flex-row flex-wrap justify-start items-center ml-10 sm:w-[100vw] md:w-[80vw] lg:w-[w-60] ',
+                  item: 'w-[60vw]  sm:w-0 xs:1 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:1/3 mb-6', 
                 }}
                 hitComponent={CustomHitComponent}
               />
