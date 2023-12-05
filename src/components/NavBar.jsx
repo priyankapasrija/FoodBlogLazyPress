@@ -32,17 +32,17 @@ export default function NavBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-2 ">
+      <NavbarContent className="hidden sm:flex gap-4 ">
         <div >
           <NavbarBrand>
-            <Link href='/' className='text-black xl:ml-[-17.5vw] lg:ml-[0]'>
+            <Link href='/' className='text-black xl:ml-[-15vw] lg:ml-[0]'>
             <span >NOODLE AND NOODLE</span>
             </Link>
           </NavbarBrand>
         </div>
       
         {foodBlog.pages.home.navBar.map((item, index) => (
-          <NavbarMenuItem key={index} >
+          <NavbarMenuItem key={index}>
             <Link
               className={`text-sm uppercase items-center
              `}
