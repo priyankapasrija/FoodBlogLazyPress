@@ -18,7 +18,7 @@ export default function NavBar() {
       isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-white flex items-center h-[3rem]"
+      className="bg-white flex items-center md:h-[3rem] xs:h-[4rem]"
       style={{
         borderBottom: "1px solid #333131",
       }}
