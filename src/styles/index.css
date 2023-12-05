@@ -203,10 +203,19 @@ hr:after {
 /* Recipe Quote responsiveness */
 .recipe-quote {
   font-family: "Baryton";
-  font-size: 4rem;
+  font-size: 5.5rem;
   line-height: 1;
   width: 80vw;
   height: 60vh;
+}
+
+
+@media (max-width: 1599px) {
+
+  .recipe-quote {
+    font-size: 5rem;
+  }
+
 }
 
 
@@ -258,7 +267,9 @@ hr:after {
 
 @media (max-width: 480px) {
   .hero-banner-title {
-    font-size: 3rem;
+
+    font-size: 2.5rem;
+
   }
 
   .card-image {

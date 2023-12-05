@@ -8,7 +8,6 @@ import SkeletonForCard from './SkeletonForCard';
 function CustomHitComponent({ hit }) {
   const [isLoading, setIsLoading] = useState(true);
 
-  
 
   useEffect(() => {
     setIsLoading(false);
@@ -39,12 +38,12 @@ const CardSection = () => {
     <>
       <div>
         <InstantSearch searchClient={searchClient} indexName='recipes'>
-          <div className='mt-5 mb-3  '>
+          <div className='mt-3 mb-3  '>
             <SearchBox
               placeholder={' Search for recipes'}
               classNames={{
-                form:'hidden lg:flex lg:w-[70vw] lg:ml-[2.5vw]',
-                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans text-sm w-[14vw] xs:hidden sm:hidden md:hidden lg:flex ' ,
+                form:'hidden lg:flex lg:w-[65vw] lg:ml-[2.2vw]',
+                input: 'border border-black p-1 placeholder:text-slate-400 items-center flex font-sans text-sm w-[13vw] xs:hidden sm:hidden md:hidden lg:flex ' ,
                 submit: 'fill-white',
                 submitIcon:'border border-black w-8 h-8 bg-black fill-white p-2', 
                 reset:'hidden'
@@ -90,12 +89,12 @@ const CardSection = () => {
           <Pagination
           showFirst={false}
           showLast={false}
-          
             totalPages={25}
             classNames={{
               selectedItem: 'border bg-black text-white',
               list: 'flex justify-center items-center mb-2 mt-2 w-[90vw] ml-[5vw]',
               item: 'border p-1 m-1',
+              link: ''
             }}
             
           />
