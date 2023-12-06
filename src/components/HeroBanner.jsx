@@ -41,12 +41,12 @@ const HeroBanner = () => {
                         {foodBlog.pages.home.hero.map((item, index) => (
                             <div
                                 key={index}
-                                className="relative h-[100vh] w-[]overflow-x-hidden bg-[#717ff7] hover:cursor-pointer hover:opacity-75 group"
+                                className="relative h-[100vh] w-[]overflow-x-hidden bg-[#717ff7] hover:cursor-pointer hover:opacity-95 group"
                             >
                                 {isAutoplay ? (
-                                    <FaPause className="invisible group-hover:visible absolute z-500 min-h-full min-w-full p-32 opacity-75" />
+                                    <FaPause className="invisible group-hover:visible absolute z-500 h-full w-full p-48 opacity-20" />
                                 ) : (
-                                    <FaPlay className="invisible group-hover:visible absolute z-500 min-h-full min-w-full p-32 opacity-75" />
+                                    <FaPlay className="invisible group-hover:visible absolute z-500 h-full w-full p-48 opacity-20" />
                                 )}
                                 <img
                                     alt="carousel banner"
