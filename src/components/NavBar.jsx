@@ -1,3 +1,4 @@
+
 import { Navbar, NavbarContent, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
 import {useState} from 'react';
@@ -23,14 +24,16 @@ export default function NavBar() {
         borderBottom: "1px solid #333131",
       }}
     >
+
       <NavbarContent className="sm:hidden" justify="center
 
       " >
         <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+
       </NavbarContent>
-      <NavbarContent className="sm:hidden"  >
-        <NavbarBrand  > 
-          <span >NOODLE AND NOODLE</span>
+      <NavbarContent className="sm:hidden">
+        <NavbarBrand>
+          <span>NOODLE AND NOODLE</span>
         </NavbarBrand>
       </NavbarContent>
 
@@ -43,9 +46,10 @@ export default function NavBar() {
 
             <span >NOODLE AND NOODLE</span>
             </Link>
+
           </NavbarBrand>
         </div>
-      
+
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link
@@ -70,7 +74,6 @@ export default function NavBar() {
       </NavbarContent>
 
       <NavbarMenu>
-       
         {foodBlog.pages.home.navBar.map((item, index) => (
           <NavbarMenuItem key={index}>
             <Link

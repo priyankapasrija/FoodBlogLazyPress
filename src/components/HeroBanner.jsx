@@ -1,14 +1,22 @@
-import {Animator,ScrollContainer,ScrollPage,batch,Fade} from "react-scroll-motion";
+import {
+    Animator,
+    ScrollContainer,
+    ScrollPage,
+    batch,
+    Fade,
+} from "react-scroll-motion";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from "@nextui-org/react";
 import { useFoodBlog } from "../lib/swr";
+import { useState } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
 
 const HeroBanner = () => {
-    const { isLoading,foodBlog } = useFoodBlog();
-   
-    
-   if (isLoading) return null
+    const { isLoading, foodBlog } = useFoodBlog();
+    const [isAutoplay, setIsAutoplay] = useState(true);
+
+    if (isLoading) return null;
     return (
         <ScrollContainer>
             <ScrollPage
@@ -16,25 +24,30 @@ const HeroBanner = () => {
                     height: "100vh",
                     marginTop: "-3rem",
                     border: "1px solid black",
-                    
                 }}
             >
                 <Animator animation={batch(Fade())}>
                     <Carousel
-                        autoPlay={true}
+                        autoPlay={isAutoplay}
                         interval={8000}
                         showIndicators={true}
                         showStatus={false}
                         showThumbs={false}
                         infiniteLoop
-                        style={{ height: "100vh", overflow: "hidden"}}
-                        showArrows={true}                     
+                        style={{ height: "100vh", overflow: "hidden" }}
+                        showArrows={true}
+                        onClickItem={() => setIsAutoplay((prev) => !prev)}
                     >
                         {foodBlog.pages.home.hero.map((item, index) => (
                             <div
                                 key={index}
-                                className="relative h-[100vh] w-[]overflow-x-hidden bg-[#717ff7]"
+                                className="relative h-[100vh] w-[]overflow-x-hidden bg-[#717ff7] hover:cursor-pointer hover:opacity-95 group"
                             >
+                                {isAutoplay ? (
+                                    <FaPause className="invisible group-hover:visible absolute z-500 h-full w-full p-48 opacity-20" />
+                                ) : (
+                                    <FaPlay className="invisible group-hover:visible absolute z-500 h-full w-full p-48 opacity-20" />
+                                )}
                                 <img
                                     alt="carousel banner"
                                     src={item.imgUrl}
@@ -42,22 +55,16 @@ const HeroBanner = () => {
                                     className=" object-cover h-[100vh] boxShadow"
                                     style={{
                                         width: "40vw",
-                                        height:'50vh',
+                                        height: "50vh",
                                         marginLeft: "45vw",
-                                        marginTop:'25vh',
+                                        marginTop: "25vh",
                                         border: "1px solid black",
                                     }}
                                 />
-                                <div
-                                    className="absolute  z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center uppercase"
-                                    
-                                >
-                                  <h1
-                                   className="hero-banner-title text-black mb-2"
-                                   
-                                 >
-                                    {item.title}
-                                  </h1>
+                                <div className="absolute  z-50 text-center text-white w-[60vw] flex flex-col justify-center items-center uppercase">
+                                    <h1 className="hero-banner-title text-black mb-2">
+                                        {item.title}
+                                    </h1>
                                     <p
                                         className="text-black"
                                         style={{
@@ -73,7 +80,7 @@ const HeroBanner = () => {
                                         }
                                         className="hero-banner-button text-black buttonShadow uppercase"
                                         style={{
-                                            fontFamily:'Montserrat',
+                                            fontFamily: "Montserrat",
                                             backgroundColor: "#f0ff00",
                                             borderRadius: "0px",
                                             border: "1px solid #333131",
