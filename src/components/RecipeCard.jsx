@@ -24,20 +24,21 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
         </h4>
         <div className="flex flex-col items-start"
             >
-          <p className="text-tiny flex mt-1 mb-1 font-bold items-center"
+          <p className="text-tiny flex mt-1 mb-1 font-bold items-center select-none"
               style={{fontFamily:'Baryton'}}>
               <PiForkKnifeFill />
               &nbsp;{region}{" "}Cuisine</p>
-              <p className={`text-tiny text-black uppercase font-bold border border-black p-[0.5] px-2 ${ctgryColor(category)}`}
+              <p className={`select-none text-tiny text-black uppercase font-bold border border-black p-[0.5] px-2 ${ctgryColor(category)}`}
               style={{fontFamily:'Montserrat',fontSize:'0.5rem'}}>
               {category}</p>
         </div>
       </CardHeader>
-      <CardBody className="overflow-hidden"
+      <CardBody className="overflow-hidden select-none pointer-events-none"
       style={{marginTop:'-3vh'}}>
         <Image
           alt="Food Image"
-          className="object-cover rounded-none mb-2 card-image"
+          className="object-cover rounded-none mb-2 card-image select-none pointer-events-none"
+          draggable={false}
           src={imgUrl}
           style={{
             border: "1px solid #333131",
@@ -46,7 +47,7 @@ export default function RecipeCard({ title,imgUrl,button,region,category,pageId 
         <div className="items-end flex flex-col"> 
          <Button
         onClick={handleClick}
-        className="button buttonShadow rounded-none my-[3vh] uppercase "
+        className="button buttonShadow rounded-none my-[3vh] uppercase pointer-events-auto"
         style={{
           border: "1px solid black",
           backgroundColor: "#e4f201",

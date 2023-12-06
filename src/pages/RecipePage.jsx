@@ -64,13 +64,13 @@ export default function RecipePage() {
         />
         <Parallax speed={30}>
           <div
-            className="shadow-hard absolute ml-12 my-[-350px] italic border-2 border-black p-6 w-fit flex justify-center align-middle flex-col bg-card"
+            className="shadow-hard absolute ml-12 my-[-350px] xl:my-[-500px] italic border-2 border-black p-6 w-fit flex justify-center align-middle flex-col bg-card"
             // style={{ backgroundColor: "#feea2e" }}
           >
-            <p className="text-6xl font-bold align-middle my-auto">
+            <p className="text-6xl xl:text-9xl font-bold align-middle my-auto">
               {recipePage.title}
             </p>
-            <p className="text-2xl align-middle my-auto py-2 select-none">
+            <p className="text-2xl xl:text-5xl align-middle my-auto py-2 xl:py-6 select-none">
               {recipePage.text}
             </p>
             <div className="select-none">
@@ -80,79 +80,90 @@ export default function RecipePage() {
         </Parallax>
       </div>
       <div className="bg-offwhite bg-full w-full font-montserrat font-normal text-lg">
-        <div className="borderr">
-          <div className="flex justify-between mx-auto mb-12 w-10/12">
-            <div className="w-2/6 min-h-screen">
-              <div className="p-5 pl-0 w-full sticky top-20 pr-11">
-                <h1 className="h1 text-5xl mb-2 select-none">Ingredients</h1>
-                {/* <p className="text-default-500 text-small">
+        <div className="flex justify-between mx-auto mb-12 w-10/12">
+          <div className="w-2/6 min-h-screen">
+            <div className="p-5 pl-0 w-full sticky top-20 pr-11">
+              <h1 className="h1 text-5xl xl:text-7xl mb-2 select-none">
+                Ingredients
+              </h1>
+              {/* <p className="text-default-500 text-small">
                 Selected: {selected.join(", ")}
               </p> */}
-                <CheckboxGroup onValueChange={setSelected}>
-                  <ul className="border-2 border-black px-4 py-2 shadow-hard w-full bg-card-yellow mb-4 select-none divide-y-2 divide-y-slate-200">
-                    {recipePage?.ingList.map((ingObj) => {
-                      // console.log(`${ingObj.ing}\n` ,selected.includes(ingObj.ing));
-                      return (
-                        <div
-                          className="flex justify-between"
-                          key={crypto.randomUUID()}
+              <CheckboxGroup onValueChange={setSelected}>
+                <ul className="border-2 border-black px-4 py-2 shadow-hard w-full bg-card-yellow mb-4 select-none divide-y-2 divide-y-slate-200">
+                  {recipePage?.ingList.map((ingObj) => {
+                    // console.log(`${ingObj.ing}\n` ,selected.includes(ingObj.ing));
+                    return (
+                      <div
+                        className="flex justify-between"
+                        key={crypto.randomUUID()}
+                      >
+                        <Checkbox
+                          value={ingObj.ing + ingObj.amount}
+                          radius="none"
+                          color="default"
+                          className={
+                            "my-[1px] xl:my-[2px] line-through" +
+                            (selected.includes(ingObj.ing + ingObj.amount)
+                              ? ""
+                              : "line-through")
+                          }
+                          key={ingObj.ing + crypto.randomUUID()}
                         >
-                          <Checkbox
-                            value={ingObj.ing + ingObj.amount}
-                            radius="none"
-                            color="default"
-                            className={
-                              "my-[1px] line-through" +
-                              (selected.includes(ingObj.ing + ingObj.amount)
-                                ? ""
-                                : "line-through")
-                            }
-                            key={ingObj.ing + crypto.randomUUID()}
-                          >
-                            <p className="font-bold first-letter:capitalize">{`${ingObj.ing}`}</p>
-                          </Checkbox>
-                          <p
-                            className={
-                              "mt-[8px] text-right line-through" +
-                              (selected.includes(ingObj.ing + ingObj.amount)
-                                ? ""
-                                : "line-through")
-                            }
-                          >{`${ingObj.amount}`}</p>
-                        </div>
-                      );
-                    })}
-                  </ul>
-                </CheckboxGroup>
-              </div>
+                          <p className="font-bold first-letter:capitalize text-lg xl:text-2xl">{`${ingObj.ing}`}</p>
+                        </Checkbox>
+                        <p
+                          className={
+                            "text-lg xl:text-2xl mt-[8px] text-right line-through" +
+                            (selected.includes(ingObj.ing + ingObj.amount)
+                              ? ""
+                              : "line-through")
+                          }
+                        >{`${ingObj.amount}`}</p>
+                      </div>
+                    );
+                  })}
+                </ul>
+              </CheckboxGroup>
             </div>
-            <div className="p-5 w-8/12 pl-12">
-              <h1 className="h1 text-5xl select-none">Directions</h1>
-              {recipePage?.steps.filter((steppy) => steppy.length >= 1).map((step, i) => {
-              {/* {recipePage?.steps.map((step, i) => { */}
+          </div>
+          <div className="p-5 w-8/12 pl-12">
+            <h1 className="h1 text-5xl xl:text-7xl select-none">Directions</h1>
+            {recipePage?.steps
+              .filter((steppy) => steppy.length >= 1)
+              .map((step, i) => {
                 return (
                   <div key={crypto.randomUUID()}>
                     <h3 className="h3 text-3xl font-barlow-condensed font-bold mt-4"></h3>
-                    <p className="font-semibold first-letter:font-bold text-base first-letter:text-2xl">
-                      <b className="select-none pointer-events-none">{i + 1}. </b>
-                      {step}
+                    <p className="font-semibold first-letter:font-bold text-base first-letter:text-2xl xl:first-letter:text-5xl">
+                      <b className="select-none pointer-events-none text-lg xl:text-3xl">
+                        {i + 1}.{" "}
+                      </b>
+                      <span className="text-base xl:text-2xl">{step}</span>
                     </p>
                   </div>
                 );
               })}
-              {recipePage.videoUrl && (
-                <div className="sticky top-[111px] mb-4 h-fit">
-                  <h1 className="h1 text-5xl mb-2 mt-4 select-none">Video</h1>
-                  <div className=" shadow-hard w-fit h-fit border-2 border-black mb-4">
-                    <YouTube videoId={youTubeID} className="" />
-                  </div>
+            {recipePage.videoUrl && (
+              <div className="sticky top-[111px] mb-4 h-fit">
+                <h1 className="h1 text-5xl xl:text-7xl mb-2 mt-4 select-none">
+                  Video
+                </h1>
+                <div className=" shadow-hard w-fit h-fit border-2 border-black mb-4 xl:scale-150 origin-top-left">
+                  <YouTube
+                    videoId={youTubeID}
+                    className="w-full"
+                    opts={{
+                      width: "752",
+                      height: "423",
+                    }}
+                  />
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="w-full bg-background h-[200px]"></div>
         <hr />
         <div className="w-full bg-dots bg-blueberry/50 py-20 border-b-2 border-b-black bg-fixed">
           <div className="w-10/12 mx-auto bg-card border-2 border-black shadow-hard p-0">
